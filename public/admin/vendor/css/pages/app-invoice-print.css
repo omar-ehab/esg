@@ -1,0 +1,32 @@
+html, body {
+    background: #fff !important
+}
+
+body > :not(.invoice-print) {
+    display: none !important
+}
+
+.invoice-print {
+    min-width: 768px !important;
+    font-size: 15px !important
+}
+
+.invoice-print svg {
+    fill: black !important
+}
+
+.invoice-print * {
+    border-color: black !important;
+    color: black !important;
+    font-weight: 900;
+}
+table.table-bordered{
+    border:1px solid black;
+    margin-top:20px;
+}
+table.table-bordered > thead > tr > th{
+    border:1px solid black;
+}
+table.table-bordered > tbody > tr > td{
+    border:1px solid black;
+}
