@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CareerRequest;
-use App\models\Banner;
+use App\Models\Banner;
 use App\Models\Career;
 use App\Models\Job;
 use App\Models\Page;

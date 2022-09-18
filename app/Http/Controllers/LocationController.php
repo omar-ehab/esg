@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\models\Banner;
+use App\Models\Banner;
 use App\models\Locations;
 use App\models\MainServices;
 use App\models\Meta;
