@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
-use App\models\Banner;
+use App\Models\Banner;
 use App\Models\ContactUsMessage;
 use App\Models\Country;
 use App\Models\Page;
