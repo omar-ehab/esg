@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\ContactUsMessagesController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InquiriesController;
 use App\Http\Controllers\Admin\JobsController;
+use App\Http\Controllers\Admin\PortDetailsController;
+use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SubscribersController;
@@ -51,6 +53,15 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     //inquiries
     Route::resource('inquiries', InquiriesController::class)->only(['index', 'destroy']);
     Route::get('inquiries/export', [InquiriesController::class, 'export'])->name('inquiries.export');
+
+    //ports
+    Route::resource('ports', PortsController::class);
+    //port details
+    Route::get('/ports/{port}/port-details/create', [PortDetailsController::class, 'create'])->name('port-details.create');
+    Route::post('/ports/{port}/port-details', [PortDetailsController::class, 'store'])->name('port-details.store');
+    Route::get('/ports/{port}/port-details/{portDetails}/edit', [PortDetailsController::class, 'edit'])->name('port-details.edit');
+    Route::put('/ports/{port}/port-details/{portDetails}', [PortDetailsController::class, 'update'])->name('port-details.update');
+    Route::delete('/ports/{port}/port-details/{portDetails}', [PortDetailsController::class, 'destroy'])->name('port-details.destroy');
 
     //settings
     Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');

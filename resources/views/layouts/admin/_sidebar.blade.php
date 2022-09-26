@@ -27,6 +27,12 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Pages</span>
         </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.ports') ? 'active' : '' }}">
+            <a href="{{ route('admin.ports.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-ship"></i>
+                <div data-i18n="Egyptian Sea Ports">Egyptian Sea Ports</div>
+            </a>
+        </li>
         {{--Contact--}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Contact</span>

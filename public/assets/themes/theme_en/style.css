@@ -650,7 +650,7 @@ input[type="search"] {
 
 
 .mainmenu-area {
-    /*    border-bottom: 1px solid rgb(255 255 255 / 11%);*/
+    border-bottom: 5px solid #EA8A07;
     position: relative;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
