@@ -42,6 +42,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/themes/theme_en/build/css/intlTelInput.css')}}">
     <link rel="stylesheet" href="{{asset('assets/themes/theme_en/build/css/demo.css')}}">
+    @stack('styles')
 
 </head>
 

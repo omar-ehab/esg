@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiriesController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\NewsLetterController;
+use App\Http\Controllers\PortsController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ Route::post('/inquiry-form', InquiriesController::class)->name('inquiry-form.sav
 
 
 Route::get('/about-us', AboutUsController::class)->name('about-us');
+
+Route::get('/ports', PortsController::class)->name('ports.index');
 
 
 Route::post('/newsletter', NewsLetterController::class)->name('newsletter.save');

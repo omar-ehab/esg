@@ -5,7 +5,6 @@
              style="background-image: {{ 'url(\''. asset('storage/' . $banner->image_path ) . '\')'}};background-position: center;background-size: cover;">
             <div class="area-bg"></div>
         </div>
-        </div>
     </header>
     <section class="contact-area" id="contact">
         <div class="contact-form-area section-padding gray-bg">
