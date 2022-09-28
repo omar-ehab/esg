@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiriesController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\PortsController;
 use App\Http\Controllers\SearchController;
@@ -28,7 +29,11 @@ Route::post('/inquiry-form', InquiriesController::class)->name('inquiry-form.sav
 
 Route::get('/about-us', AboutUsController::class)->name('about-us');
 
+
 Route::get('/ports', PortsController::class)->name('ports.index');
+
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
 
 Route::post('/newsletter', NewsLetterController::class)->name('newsletter.save');

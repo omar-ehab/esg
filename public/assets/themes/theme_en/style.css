@@ -2994,11 +2994,7 @@ ul#nav li ul a, .is-sticky ul#nav li ul a {
 }
 
 .shipping-service {
-    border-radius: 5px;
-    /* -webkit-box-shadow: 0 3px 7px #ddd; */
-    /* box-shadow: 0 3px 7px #ddd; */
     overflow: hidden;
-    /* background-color: #022662; */
     color: #fff;
 }
 

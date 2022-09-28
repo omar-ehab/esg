@@ -91,12 +91,12 @@
     <style>
         .ck-editor__editable[role="textbox"] {
             /* editing area */
-            min-height: 200px;
+            min-height: 600px;
         }
     </style>
 @endpush
 @push('scripts')
-    <script src="{{ asset('admin/vendor/libs/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('admin/vendor/libs/ckeditor/full-ckeditor.js') }}"></script>
     <script>
         ClassicEditor
             .create(document.querySelector('#content'))

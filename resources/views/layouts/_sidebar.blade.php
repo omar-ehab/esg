@@ -117,17 +117,17 @@
                     </li>
 
                     <li>
-                        <a href="{{route('career')}}">
+                        <a href="{{ route('career') }}">
                             <h3 class="title-index">Careers</h3>
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('contact-us')}}">
+                        <a href="{{ route('contact-us') }}">
                             <h3 class="title-index">Contact Us</h3>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('news.index') }}">
                             <h3 class="title-index">News</h3>
                         </a>
                     </li>
