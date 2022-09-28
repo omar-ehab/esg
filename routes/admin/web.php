@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ContactUsMessagesController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InquiriesController;
 use App\Http\Controllers\Admin\JobsController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PortDetailsController;
 use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -62,6 +63,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/ports/{port}/port-details/{portDetails}/edit', [PortDetailsController::class, 'edit'])->name('port-details.edit');
     Route::put('/ports/{port}/port-details/{portDetails}', [PortDetailsController::class, 'update'])->name('port-details.update');
     Route::delete('/ports/{port}/port-details/{portDetails}', [PortDetailsController::class, 'destroy'])->name('port-details.destroy');
+
+    //news
+    Route::resource('news', NewsController::class)->except(['show']);
 
     //settings
     Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');

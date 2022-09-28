@@ -37,7 +37,6 @@ class ImageService
     public static function updateBannerImage($file, ?string $oldPath): string
     {
         // create image name and path
-        $extension = $file->getClientOriginalExtension();
         $time = time();
         $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
         $image_path = storage_path('app/public/banners/' . $image_name);
@@ -52,6 +51,52 @@ class ImageService
         }
 
         return 'banners/' . $image_name;
+    }
+
+
+    /**
+     * @param $file
+     * @return string
+     */
+    public static function saveNewsImage($file): string
+    {
+        // create icons directory if not exists
+        $news_images_dir = self::getNewsImagesDir();
+        self::createDirIfNotExists($news_images_dir);
+
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/news/' . $image_name);
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        return 'news/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @param string|null $oldPath
+     * @return string
+     */
+    public static function updateNewsImage($file, ?string $oldPath): string
+    {
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/news/' . $image_name);
+
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        //delete old image from storage
+        if ($oldPath) {
+            self::delete($oldPath);
+        }
+
+        return 'news/' . $image_name;
     }
 
 
@@ -83,6 +128,14 @@ class ImageService
     private static function getBannerImagesDir(): string
     {
         return storage_path('app/public/banners');
+    }
+
+    /**
+     * @return string
+     */
+    private static function getNewsImagesDir(): string
+    {
+        return storage_path('app/public/news');
     }
 
 }

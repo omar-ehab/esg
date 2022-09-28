@@ -28,6 +28,6 @@ class CreateBannerRequest extends FormRequest
         return [
             'title' => 'required|string',
             'page_id' => 'required|int',
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120', new BannerImageSizeRule(request()->banner_position ?? '')]];
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120', new BannerImageSizeRule()]];
     }
 }

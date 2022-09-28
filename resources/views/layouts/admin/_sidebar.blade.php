@@ -33,6 +33,12 @@
                 <div data-i18n="Egyptian Sea Ports">Egyptian Sea Ports</div>
             </a>
         </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.news') ? 'active' : '' }}">
+            <a href="{{ route('admin.news.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-news"></i>
+                <div data-i18n="News">News</div>
+            </a>
+        </li>
         {{--Contact--}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Contact</span>
