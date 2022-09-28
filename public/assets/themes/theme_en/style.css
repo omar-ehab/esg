@@ -1365,9 +1365,7 @@ ul#nav li ul a, .is-sticky ul#nav li ul a {
     background: #ffffff none repeat scroll 0 0;
     padding: 70px 30px;
     position: relative;
-    /*    width: 100%;*/
     width: 560px;
-    height: 300px;
     float: left;
 }
 
