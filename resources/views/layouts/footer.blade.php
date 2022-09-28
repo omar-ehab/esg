@@ -33,20 +33,34 @@
 
 
                         <ul class="social-bookmark">
-
-                            <li>
-                                <a href="{{ $facebook }}" target="_blank">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="{{ $linkedin }}" target="_blank">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-
-
+                            @if(strlen($facebook) > 0)
+                                <li>
+                                    <a href="{{ $facebook }}" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                            @endif
+                            @if(strlen($linkedin) > 0)
+                                <li>
+                                    <a href="{{ $linkedin }}" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                            @endif
+                            @if(strlen($instagram) > 0)
+                                <li>
+                                    <a href="{{ $instagram }}" target="_blank">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                            @endif
+                            @if(strlen($youtube) > 0)
+                                <li>
+                                    <a href="{{ $youtube }}" target="_blank">
+                                        <i class="fa fa-youtube"></i>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>

@@ -133,13 +133,10 @@
                     </li>
 
                     <li>
-                        <a target="_blank" href="#">
-
+                        <a target="_blank" download="" href="{{ asset('storage/' . $profile_link) }}">
                             <h2 class="title-index">Download company profile <i class="fas fa-download"></i></h2>
                         </a>
                     </li>
-
-
                 </ul>
             </div>
 

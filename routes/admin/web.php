@@ -71,6 +71,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
     Route::put('settings/social_media', [SettingsController::class, 'social_media'])->name('settings.social_media');
     Route::put('settings/contact_information', [SettingsController::class, 'contact_information'])->name('settings.contact_information');
+    Route::put('settings/company_profile', [SettingsController::class, 'company_profile'])->name('settings.company_profile');
 
     //profile
     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');

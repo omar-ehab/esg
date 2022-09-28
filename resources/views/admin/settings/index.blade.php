@@ -112,6 +112,38 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-xs-12 col-md-6 mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text" @error('instagram') style="border-color: #ff3e1d" @enderror>
+                                            <i class="bx bxl-instagram-alt"></i>
+                                        </span>
+                                        <input type="text"
+                                               class="form-control @error('instagram') is-invalid @enderror"
+                                               name="instagram"
+                                               value="{{ old('instagram', $instagram) }}"
+                                               aria-label="Instagram link"/>
+                                    </div>
+                                    @error('instagram')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-xs-12 col-md-6 mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text" @error('youtube') style="border-color: #ff3e1d" @enderror>
+                                            <i class="bx bxl-youtube"></i>
+                                        </span>
+                                        <input type="text"
+                                               class="form-control @error('youtube') is-invalid @enderror"
+                                               name="youtube"
+                                               value="{{ old('youtube', $youtube) }}"
+                                               aria-label="Youtube link"/>
+                                    </div>
+                                    @error('youtube')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col">
                                     <button type="submit" class="btn btn-primary">
                                         <i class="bx bx-save me-1"></i>
@@ -119,7 +151,45 @@
                                     </button>
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Company Profile</h5>
+                        <a href="{{ asset('storage/' . $profile_link) }}" download class="btn btn-primary">
+                            <i class="bx bx-cloud-download me-1"></i>
+                            Download
+                        </a>
+                    </div>
+                    <div class="card-body">
 
+                        <form action="{{ route('admin.settings.company_profile') }}" method="POST"
+                              enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="row">
+                                <div class="col-xs-12 mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="file"
+                                               class="form-control @error('file') is-invalid @enderror"
+                                               name="file"
+                                               accept="application/pdf"
+                                               aria-label="Company Profile"/>
+                                    </div>
+                                    @error('file')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bx bx-save me-1"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

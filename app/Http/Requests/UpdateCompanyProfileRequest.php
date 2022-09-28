@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSocialMediaRequest extends FormRequest
+class UpdateCompanyProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,11 @@ class UpdateSocialMediaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'facebook' => 'nullable|url',
-            'linkedin' => 'nullable|url',
-            'instagram' => 'nullable|url',
-            'youtube' => 'nullable|url',
+            'file' => ['required', 'file',
+                'mimes:pdf',
+                'mimetypes:application/pdf',
+                'max:10240' //10Mb
+            ],
         ];
     }
 }

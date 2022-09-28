@@ -2,11 +2,9 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
-class ImageService
+class ImageService extends StorageService
 {
     /**
      * @param $file
@@ -16,7 +14,7 @@ class ImageService
     {
         // create icons directory if not exists
         $banners_images_dir = self::getBannerImagesDir();
-        self::createDirIfNotExists($banners_images_dir);
+        parent::createDirIfNotExists($banners_images_dir);
 
         // create image name and path
         $time = time();
@@ -62,7 +60,7 @@ class ImageService
     {
         // create icons directory if not exists
         $news_images_dir = self::getNewsImagesDir();
-        self::createDirIfNotExists($news_images_dir);
+        parent::createDirIfNotExists($news_images_dir);
 
         // create image name and path
         $time = time();
@@ -97,28 +95,6 @@ class ImageService
         }
 
         return 'news/' . $image_name;
-    }
-
-
-    /**
-     * @param string $file_name
-     * @return bool
-     */
-    public static function delete(string $file_name): bool
-    {
-        return Storage::disk('public')->delete($file_name);
-    }
-
-    /**
-     * @param string $path
-     * @return void
-     */
-    private static function createDirIfNotExists(string $path): void
-    {
-        $exists = File::isDirectory($path);
-        if (!$exists) {
-            File::makeDirectory($path, 0644, true);
-        }
     }
 
 
