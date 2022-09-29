@@ -81,6 +81,12 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Settings</span>
         </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.certificates') ? 'active' : '' }}">
+            <a href="{{ route('admin.certificates.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-certification"></i>
+                <div data-i18n="Certificates">Certificates</div>
+            </a>
+        </li>
         <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.banners') ? 'active' : '' }}">
             <a href="{{ route('admin.banners.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-carousel"></i>

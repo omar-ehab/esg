@@ -106,7 +106,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="{{ route('ports.index') }}">
                             <h3 class="title-index">Egyptian Sea Ports</h3>
                         </a>
                     </li>

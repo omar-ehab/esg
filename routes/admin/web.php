@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\CareersController;
+use App\Http\Controllers\Admin\CertificatesController;
 use App\Http\Controllers\Admin\ContactUsMessagesController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InquiriesController;
@@ -25,15 +26,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix('dashboard')->middleware('auth')->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
 
-//    //contact messages
-//    Route::get('contact-messages', [ContactMessageController::class, 'index'])->name('contact_us_messages.index');
-//
-//    //subscriptions
-//    Route::get('subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
-//    Route::get('subscriptions/export', [SubscriptionController::class, 'export'])->name('subscriptions.export');
-//    Route::delete('subscriptions/{subscription}', [SubscriptionController::class, 'destroy'])->name('subscriptions.destroy');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
     //banners
     Route::resource('banners', BannersController::class);
@@ -47,16 +41,19 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::resource('contact-us-messages', ContactUsMessagesController::class)->only(['index']);
     Route::get('contact-us-messages/export', [ContactUsMessagesController::class, 'export'])->name('contact-us-messages.export');
 
-    //subscribers
-    Route::resource('subscribers', SubscribersController::class)->only(['index', 'destroy']);
-    Route::get('subscribers/export', [SubscribersController::class, 'export'])->name('subscribers.export');
+    //certificates
+    Route::resource('certificates', CertificatesController::class)->except(['show']);
 
     //inquiries
     Route::resource('inquiries', InquiriesController::class)->only(['index', 'destroy']);
     Route::get('inquiries/export', [InquiriesController::class, 'export'])->name('inquiries.export');
 
+    //news
+    Route::resource('news', NewsController::class)->except(['show']);
+
     //ports
     Route::resource('ports', PortsController::class);
+
     //port details
     Route::get('/ports/{port}/port-details/create', [PortDetailsController::class, 'create'])->name('port-details.create');
     Route::post('/ports/{port}/port-details', [PortDetailsController::class, 'store'])->name('port-details.store');
@@ -64,8 +61,10 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::put('/ports/{port}/port-details/{portDetails}', [PortDetailsController::class, 'update'])->name('port-details.update');
     Route::delete('/ports/{port}/port-details/{portDetails}', [PortDetailsController::class, 'destroy'])->name('port-details.destroy');
 
-    //news
-    Route::resource('news', NewsController::class)->except(['show']);
+    //profile
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::put('profile/change_data', [ProfileController::class, 'change_data'])->name('profile.change_data');
+    Route::put('profile/change_password', [ProfileController::class, 'change_password'])->name('profile.change_password');
 
     //settings
     Route::get('settings', [SettingsController::class, 'index'])->name('settings.index');
@@ -73,10 +72,10 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::put('settings/contact_information', [SettingsController::class, 'contact_information'])->name('settings.contact_information');
     Route::put('settings/company_profile', [SettingsController::class, 'company_profile'])->name('settings.company_profile');
 
-    //profile
-    Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::put('profile/change_data', [ProfileController::class, 'change_data'])->name('profile.change_data');
-    Route::put('profile/change_password', [ProfileController::class, 'change_password'])->name('profile.change_password');
+    //subscribers
+    Route::resource('subscribers', SubscribersController::class)->only(['index', 'destroy']);
+    Route::get('subscribers/export', [SubscribersController::class, 'export'])->name('subscribers.export');
+
 });
 
 

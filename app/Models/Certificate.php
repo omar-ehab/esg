@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Certificate extends Model
 {
-    use HasFactory;
+    protected $guarded = ['id'];
+    protected $fillable = ['name', 'image_path', 'link'];
 }
