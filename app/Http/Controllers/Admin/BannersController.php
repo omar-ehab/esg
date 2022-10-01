@@ -34,7 +34,7 @@ class BannersController extends Controller
      */
     public function create(): View|Factory|Application
     {
-        $pages = Page::all();
+        $pages = Page::orderBy('name', 'ASC')->get();
         return view('admin.banners.create', compact('pages'));
     }
 

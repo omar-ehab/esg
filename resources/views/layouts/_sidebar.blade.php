@@ -36,28 +36,24 @@
                     </a>
                     <ul class="list-unstyled ct-sidenav-list">
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Warehousing</a>
                         </li>
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Transportation</a>
                         </li>
-                        <li>
-                            <a href="#">Lorem Ipsum</a>
-                        </li>
-
                     </ul>
                     <a href="#">
                         <h3 class="title-index cap">Shipping</h3>
                     </a>
                     <ul class="list-unstyled ct-sidenav-list">
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Ship Agency Services</a>
                         </li>
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Suez Canal Transit</a>
                         </li>
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Husbandry Services</a>
                         </li>
 
                     </ul>
@@ -67,15 +63,23 @@
                     </a>
                     <ul class="list-unstyled ct-sidenav-list">
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Ship Spares Logistics</a>
                         </li>
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Freight Contracting</a>
                         </li>
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Project Cargo Handling</a>
                         </li>
-
+                        <li>
+                            <a href="#">Hanging Garments</a>
+                        </li>
+                        <li>
+                            <a href="#">Inland & Overland Transport services</a>
+                        </li>
+                        <li>
+                            <a href="#">Customs Clearance Services</a>
+                        </li>
                     </ul>
 
                     <a href="#">
@@ -83,15 +87,11 @@
                     </a>
                     <ul class="list-unstyled ct-sidenav-list">
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Perishable Cargo & Agro products</a>
                         </li>
                         <li>
-                            <a href="#">Lorem Ipsum</a>
+                            <a href="#">Sea / Land Reefer Trailers Services</a>
                         </li>
-                        <li>
-                            <a href="#">Lorem Ipsum</a>
-                        </li>
-
                     </ul>
                 </ul>
             </div>
@@ -134,7 +134,8 @@
 
                     <li>
                         <a target="_blank" download="" href="{{ asset('storage/' . $profile_link) }}">
-                            <h2 class="title-index">Download company profile <i class="fas fa-download"></i></h2>
+                            <h2 class="title-index">Download company profile <i class="fas fa-download c_profile_o"></i>
+                            </h2>
                         </a>
                     </li>
                 </ul>

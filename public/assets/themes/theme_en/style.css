@@ -3375,7 +3375,7 @@ label::before {
 -------------------------------*/
 
 a.scrolltotop {
-    background: #092a65 none repeat scroll 0 0;
+    background: #ea8a07 none repeat scroll 0 0;
     bottom: 20px;
     -webkit-box-shadow: 0 0 0 7px transparent;
     box-shadow: 0 0 0 7px transparent;
@@ -4850,7 +4850,7 @@ textarea.form-control {
 .ct-sidenav h2 {
     font-family: 'magistral', sans-serif;
     font-weight: 600;
-    color: #002561;
+    color: #fff;
     /* margin: 0 0 15px; */
     margin: 0 20px;
     font-weight: 800;
@@ -4859,7 +4859,7 @@ textarea.form-control {
     position: relative;
     font-size: 19px;
     text-align: left;
-    background-color: #eaeaea;
+    background-color: #ea8a07;
     padding: 5% 10px;
     display: flex;
     width: 85%;
@@ -4870,6 +4870,11 @@ textarea.form-control {
     color: #ffffff;
     text-decoration: underline;
     background-color: #00233d;
+}
+
+.ct-sidenav h2 {
+    margin-top: 25px;
+    margin-left: 15px;
 }
 
 .ct-sidenav h2 i {
@@ -4943,7 +4948,7 @@ textarea.form-control {
 
 
 .ct-sidenav-list > li > a:hover, .ct-sidenav-list > li button {
-    color: #0f90c1;
+    color: #EA8A07;
     text-decoration: underline;
 }
 
@@ -6050,7 +6055,7 @@ p:not(.u-text-variant) {
 }
 
 .title-index:hover {
-    color: #67b4d6;
+    color: #EA8A07;
     text-decoration: underline;
 }
 
