@@ -188,100 +188,102 @@
     {{--    </section>--}}
 
 
-    {{--    @if($news)--}}
+    @if($news)
 
-    {{--        <section class="blog-area padding-top-news">--}}
-    {{--            <div class="container">--}}
+        <section class="blog-area padding-top-news">
+            <div class="container">
 
-    {{--                <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">--}}
-    {{--                    <div class="about-content-area wow fadeIn">--}}
-    {{--                        <div class="title-news">--}}
-    {{--                            <h2>Latest News</h2>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <div class="row">--}}
-    {{--                        <?php--}}
-    {{--                        $type = mb_detect_encoding($news->news_desc);--}}
+                <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                    <div class="about-content-area wow fadeIn">
+                        <div class="title-news">
+                            <h2>Latest News</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <?php
+                        $type = mb_detect_encoding($news->news_desc);
 
-    {{--                        $descs = explode(" ", strip_tags($news->news_desc));--}}
-    {{--                        $firstPart = implode(" ", array_splice($descs, 0, 50));--}}
-    {{--                        ?>--}}
-    {{--                    @if($type =='ASCII')--}}
+                        $descs = explode(" ", strip_tags($news->news_desc));
+                        $firstPart = implode(" ", array_splice($descs, 0, 50));
+                        ?>
+                    @if($type =='ASCII')
 
-    {{--                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">--}}
-    {{--                            <div class="single-blog wow fadeInUp" data-wow-delay="0.2s">--}}
-    {{--                                <div class="blog-image">--}}
-    {{--                                    <img src="{{asset('/newsImages')}}/{{$news->news_img}}" alt="">--}}
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="single-blog wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="blog-image">
+                                    <img src="{{asset('storage/' . $news->image_path )}}" alt="{{ $news->title }}">
 
-    {{--                                </div>--}}
-    {{--                                <div class="blog-details text-left">--}}
-    {{--                                    <div class="blog-meta"><a href="{{ route('newsDetails', $news->news_id) }}">--}}
-    {{--                                            <p>{{date(' jS F Y', strtotime($news->news_date))}}</p>--}}
-    {{--                                        </a></div>--}}
-    {{--                                    <h3><a href="{{ route('newsDetails', $news->news_id) }}">{{$news->news_title}}</a>--}}
-    {{--                                    </h3>--}}
-    {{--                                    <p> {!!html_entity_decode( $firstPart)!!} ...</p>--}}
-    {{--                                    <a href="{{ route('newsDetails', $news->news_id) }}">See More &nbsp;<i--}}
-    {{--                                            class="fa fa-angle-right"></i></a>--}}
-    {{--                                </div>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                        <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">--}}
-    {{--                            <div class="more-news-area wow fadeIn">--}}
-    {{--                                <a class="more-news" href="{{route('news')}}"> More News</a>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
+                                </div>
+                                <div class="blog-details text-left">
+                                    <div class="blog-meta">
+                                        <a href="{{ route('news.show', $news->slug) }}">
+                                            <p>{{ $news->created_at->format('d F Y') }}</p>
+                                        </a>
+                                    </div>
+                                    <h3><a href="{{ route('news.show', $news->slug) }}">{{ $news->title }}</a>
+                                    </h3>
+                                    <p>{{ $news->short_description }}</p>
+                                    <a href="{{ route('news.show', $news->slug) }}">See More &nbsp;
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                            <div class="more-news-area wow fadeIn">
+                                <a class="more-news" href="{{ route('news.index') }}"> More News</a>
+                            </div>
+                        </div>
 
-    {{--                    @else--}}
+                    @else
 
-    {{--                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">--}}
-    {{--                            <div class="single-blog arabic wow fadeInUp" data-wow-delay="0.2s">--}}
-    {{--                                <div class="blog-image">--}}
-    {{--                                    <img src="{{asset('/newsImages')}}/{{$news->news_img}}" alt="">--}}
-
-    {{--                                </div>--}}
-    {{--                                <div class="blog-details text-right">--}}
-    {{--                                    <div class="blog-meta"><a href="{{ route('newsDetails', $news->news_id) }}">--}}
-    {{--                                                <?php--}}
-    {{--                                                $months = array(--}}
-    {{--                                                    '01' => 'يناير',--}}
-    {{--                                                    '02' => 'فبراير',--}}
-    {{--                                                    '03' => 'مارس',--}}
-    {{--                                                    '04' => 'ابريل',--}}
-    {{--                                                    '05' => 'مايو',--}}
-    {{--                                                    '06' => 'يونيو',--}}
-    {{--                                                    '07' => 'يوليو',--}}
-    {{--                                                    '08' => 'اغسطس',--}}
-    {{--                                                    '09' => 'سبتمبر',--}}
-    {{--                                                    '10' => 'اكتوبر',--}}
-    {{--                                                    '11' => 'نوفمبر',--}}
-    {{--                                                    '12' => 'ديسمبر',--}}
-    {{--                                                )--}}
-    {{--                                                ?>--}}
-
-
-    {{--                                                <?php $month = date("m", strtotime($news->news_date)); ?>--}}
-    {{--                                            <p>{{date(' N', strtotime($news->news_date))}} {{$months[$month]}} {{date('Y', strtotime($news->news_date))}}</p>--}}
-    {{--                                        </a></div>--}}
-    {{--                                    <h3><a href="{{ route('newsDetails', $news->news_id) }}">{{$news->news_title}}</a>--}}
-    {{--                                    </h3>--}}
-    {{--                                    <p> {!!html_entity_decode( $firstPart)!!} ...</p>--}}
-    {{--                                    <a href="{{ route('newsDetails', $news->news_id) }}">المزيد &nbsp;<i--}}
-    {{--                                            class="fa fa-angle-left"></i></a>--}}
-    {{--                                </div>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                        <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">--}}
-    {{--                            <div class="more-news-area wow fadeIn">--}}
-    {{--                                <a class="more-news arabic" href="{{route('news')}}"> المزيد من الاخبار </a>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    @endif--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </section>--}}
-    {{--    @endif--}}
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="single-blog arabic wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="blog-image">
+                                    <img src="{{asset('storage/' . $news->image_path )}}" alt="{{ $news->title }}">
+                                </div>
+                                <div class="blog-details text-right">
+                                    <div class="blog-meta">
+                                        <a href="{{ route('news.show', $news->slug) }}">
+                                                <?php
+                                                $months = array(
+                                                    '01' => 'يناير',
+                                                    '02' => 'فبراير',
+                                                    '03' => 'مارس',
+                                                    '04' => 'ابريل',
+                                                    '05' => 'مايو',
+                                                    '06' => 'يونيو',
+                                                    '07' => 'يوليو',
+                                                    '08' => 'اغسطس',
+                                                    '09' => 'سبتمبر',
+                                                    '10' => 'اكتوبر',
+                                                    '11' => 'نوفمبر',
+                                                    '12' => 'ديسمبر',
+                                                )
+                                                ?>
+                                                <?php $month = date("m", strtotime($news->news_date)); ?>
+                                            <p>{{ $news->created_at->format('d') }} {{ $months[$news->created_at->format('m')] }} {{ $news->created_at->format('Y') }}</p>
+                                        </a>
+                                    </div>
+                                    <h3><a href="{{ route('news.show', $news->slug) }}">{{ $news->title }}</a>
+                                    </h3>
+                                    <p>{{ $news->short_description }}</p>
+                                    <a href="{{ route('news.show', $news->slug) }}">المزيد &nbsp;<i
+                                            class="fa fa-angle-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                            <div class="more-news-area wow fadeIn">
+                                <a class="more-news arabic" href="{{route('news.index')}}"> المزيد من الاخبار </a>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </section>
+    @endif
 
 
     <!--MEMBERSHIP AREA-->

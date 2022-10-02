@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Country;
+use App\Models\News;
 use App\Models\Page;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -20,6 +21,7 @@ class HomeController extends Controller
         $banners = Banner::where('page_id', $page->id)->get();
         $countries = Country::all();
         $inquiryServices = [];
-        return view('index', compact('banners', 'countries', 'inquiryServices'));
+        $news = News::latest('created_at')->first();
+        return view('index', compact('banners', 'countries', 'inquiryServices', 'news'));
     }
 }
