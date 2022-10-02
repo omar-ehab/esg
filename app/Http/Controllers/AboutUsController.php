@@ -16,7 +16,7 @@ class AboutUsController extends Controller
 {
     public function __invoke(): Factory|View|Application
     {
-        $page = Page::where('slug', 'about')->firstOrFail();
+        $page = Page::where('slug', 'about-us')->firstOrFail();
         $abouts = About::orderBy('id', 'asc')->get();
         $certificates = Certificate::all();
         $banner = Banner::where('page_id', $page->id)->first();

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class)->name('home');
 
 
+Route::get('/about-us', AboutUsController::class)->name('about-us');
+
 Route::get('/locations', [LocationController::class, 'index'])->name('locations');
 
 Route::get('/career', [CareerController::class, 'index'])->name('career');
@@ -25,9 +27,6 @@ Route::post('/contact-us', [ContactController::class, 'save'])->name('contact-us
 
 
 Route::post('/inquiry-form', InquiriesController::class)->name('inquiry-form.save');
-
-
-Route::get('/about-us', AboutUsController::class)->name('about-us');
 
 
 Route::get('/ports', PortsController::class)->name('ports.index');

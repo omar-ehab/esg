@@ -100,7 +100,7 @@
 
                 <ul class="list-unstyled ct-sidenav-list">
                     <li>
-                        <a href="#">
+                        <a href="{{ route('about-us') }}">
                             <h3 class="title-index">About Us</h3>
                         </a>
                     </li>
