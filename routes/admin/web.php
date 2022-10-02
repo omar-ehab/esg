@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\CareersController;
 use App\Http\Controllers\Admin\CertificatesController;
@@ -31,6 +32,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //banners
     Route::resource('banners', BannersController::class);
+
+    //about
+    Route::resource('about', AboutUsController::class)->only(['index', 'edit', 'update']);
 
     //career
     Route::resource('jobs', JobsController::class)->except(['show']);

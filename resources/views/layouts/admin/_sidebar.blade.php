@@ -27,6 +27,12 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Pages</span>
         </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.about') ? 'active' : '' }}">
+            <a href="{{ route('admin.about.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div data-i18n="About Us">About Us</div>
+            </a>
+        </li>
         <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.ports') ? 'active' : '' }}">
             <a href="{{ route('admin.ports.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-ship"></i>
