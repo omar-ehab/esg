@@ -10,10 +10,10 @@
                   <span class="app-brand-logo demo">
 {{--                    <img src="{{ asset('assets/images/logo.png') }}" alt="Al Farouk Logo" width="50px">--}}
                   </span>
-                    <span class="app-brand-text demo text-body fw-bolder">EGS DASHBOARD</span>
+                    <span class="app-brand-text demo text-body fw-bolder">ESG DASHBOARD</span>
                 </a>
             </div>
-            <h4 class="mb-2">Welcome to EGS! 👋</h4>
+            <h4 class="mb-2">Welcome to ESG! 👋</h4>
 
             <form id="formAuthentication" class="mb-3" action="{{ route('admin.login') }}" method="POST">
                 @csrf

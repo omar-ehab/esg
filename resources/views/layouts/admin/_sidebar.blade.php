@@ -5,7 +5,7 @@
                 <img src="{{ asset('assets/themes/theme_en/img/logos/blue-logo.png') }}" alt="Al Farouk Logo"
                      width="50px">
               </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">EGS</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">ESG</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
