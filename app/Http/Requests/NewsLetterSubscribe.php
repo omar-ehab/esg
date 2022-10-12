@@ -26,7 +26,7 @@ class NewsLetterSubscribe extends FormRequest
     public function rules(): array
     {
         return [
-            'subscriber-email' => 'required|email|unique:subscribers,email',
+            'subscriber-email' => 'required|email',
         ];
     }
 }

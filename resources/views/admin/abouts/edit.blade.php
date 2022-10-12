@@ -54,3 +54,23 @@
         </div>
     </div>
 @endsection
+
+
+@push('styles')
+    <style>
+        .ck-editor__editable[role="textbox"] {
+            /* editing area */
+            min-height: 200px;
+        }
+    </style>
+@endpush
+@push('scripts')
+    <script src="{{ asset('admin/vendor/libs/ckeditor/full-ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

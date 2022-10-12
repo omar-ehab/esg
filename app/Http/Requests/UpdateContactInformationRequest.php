@@ -26,7 +26,8 @@ class UpdateContactInformationRequest extends FormRequest
         return [
             'address' => 'required|string|min:3',
             'email' => 'required|email',
-            'phone' => ['required', 'regex:/(01)(0|1|2|5)[0-9]{8}/']
+            // regex:/(01)(0|1|2|5)[0-9]{8}/
+            'phone' => ['required', 'string']
         ];
     }
 }

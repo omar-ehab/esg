@@ -13,14 +13,14 @@
                     <div class="subscriber-form-area">
                         <form action="{{ route('newsletter.save') }}" class="subsriber-form" method="post" id='target'>
                             @csrf
-                            <input type="subscriber-email" name="email" id="subscriber-mail" value="{{ old('email') }}"
+                            <input type="email" name="subscriber-email" id="subscriber-mail" value="{{ old('email') }}"
                                    placeholder="Enter Your Mail" required>
 
                             <button type="submit">subscribe</button>
                         </form>
                     </div>
                     @if(Session::has('messageNewsLetter'))
-                        <p style="color: #00aeef; font-weight: 600;font-size: 16px;">{{ Session::get('messageNewsletter') }}</p>
+                        <p style="color: white; font-weight: 600;font-size: 16px;">Thanks for Subscribing!</p>
                     @endif
                     @error('email')
                     <p style="color: #f34051; font-weight: 600;font-size: 16px;">{{ $message }}</p>

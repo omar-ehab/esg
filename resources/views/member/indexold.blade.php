@@ -19,7 +19,7 @@
                             <div class="col-md-8 col-md-offset-2 col-md-pull-2 slider-text"
                                  style="right: -38%; text-align: center;">
                                 <div class="slider-text-inner" id="guide-slide-text">
-                                    <h1 id="dalel">{{ $banner->banner_title }} </h1>
+                                    <h1 id="dalel">{{ $banner->title }} </h1>
                                 </div>
                             </div>
                         </div>

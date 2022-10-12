@@ -18,7 +18,6 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Description</th>
                         <th scope="col">Actions</th>
 
                     </tr>
@@ -28,7 +27,6 @@
                         <tr>
                             <td>{{ $i + 1 }}</td>
                             <td>{{ $about->title }}</td>
-                            <td>{{ \Illuminate\Support\Str::limit($about->description, 75) }}</td>
                             <td>
                                 <div class="d-flex">
                                     <a class="btn btn-warning btn-sm mx-3"

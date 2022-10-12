@@ -4947,7 +4947,7 @@ textarea.form-control {
 }
 
 
-.ct-sidenav-list > li > a:hover, .ct-sidenav-list > li button {
+.ct-sidenav-list > li > a:hover + h3, .ct-sidenav-list > li button {
     color: #EA8A07;
     text-decoration: underline;
 }
@@ -6006,13 +6006,13 @@ p:not(.u-text-variant) {
 .SC-list li b, strong {
     font-weight: 700;
     /*    text-transform: capitalize;*/
-    color: #6d6d6d;
+    /*color: #6d6d6d;*/
 }
 
 .SC-list p, strong {
     font-size: 16px;
     font-size: 16px;
-    color: #092a65;
+    /*color: #092a65;*/
     vertical-align: middle;
 }
 

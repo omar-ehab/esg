@@ -12,7 +12,7 @@
     <div class="fullwidth">
         <div
             class="vc_row wpb_row vc_row-fluid foreground-color-45 about-block rtl-rotate-background vc_custom_1473757893014 vc_row-has-fill"
-            style="background-image:url('{{asset('themes/theme_en/img/photo.jpg')}}');">
+            style="background-image:url('{{ asset('assets/themes/theme_en/img/photo.jpg') }}');">
             <div class="wpb_column vc_column_container vc_col-sm-12">
                 <div class="vc_column-inner">
                     <div class="wpb_wrapper">
@@ -27,7 +27,7 @@
                                                     @continue
                                                 @endif
                                                 <h2>{{ $about->title }}</h2>
-                                                <p class="inner-p">{{ $about->description }}</p>
+                                                <p class="inner-p">{!! $about->description !!}</p>
                                                 @if (!$loop->last)
                                                     <hr>
                                                 @endif
@@ -50,7 +50,7 @@
                                             <div
                                                 class="wpb_text_column wpb_content_element vc_custom_1472524013703 text-color-white">
                                                 <div class="wpb_wrapper text-color-white">
-                                                    <p>{{ $abouts[0]->description }}</p>
+                                                    <p>{!! $abouts[0]->description !!}</p>
                                                 </div>
                                             </div>
                                         </div>

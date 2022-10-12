@@ -45,7 +45,7 @@
                                 <img src="{{asset('storage/' . $news->image_path)}}" alt="{{ $news->title }}">
                             </div>
                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                {!! $n->content !!}
+                                {!! $news->content !!}
                             </div>
                         </div>
                     </div>

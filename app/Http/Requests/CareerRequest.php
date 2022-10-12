@@ -26,7 +26,8 @@ class CareerRequest extends FormRequest
         return [
             'first_name' => 'required|string|min:3',
             'last_name' => 'required|string|min:3',
-            'phone' => ['required', 'regex:/(01)(0|1|2|5)[0-9]{8}/'],
+            // regex:/(01)(0|1|2|5)[0-9]{8}/
+            'phone' => ['required', 'string'],
             'national_id' => ['required', 'numeric', 'digits:14'],
             'job_id' => ['required', 'int'],
             'cv' => ['required', 'file',
