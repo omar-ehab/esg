@@ -28,7 +28,7 @@ class UpdateServiceRequest extends FormRequest
             'service_banner_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120', new BannerImageSizeRule()],
             'parent_service' => 'sometimes|integer',
             'name' => 'required|string',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
         ];
     }
 }

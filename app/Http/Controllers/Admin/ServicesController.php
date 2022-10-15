@@ -17,6 +17,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class ServicesController extends Controller
 {
@@ -63,17 +64,26 @@ class ServicesController extends Controller
                     'page_id' => $page->id,
                     'image_path' => $image_path,
                 ]);
+                $parent_service_id = $request->get('parent_service') != '0' ? $request->get('parent_service') : null;
+                $description = $request->get('description');
+                if (is_null($parent_service_id) && is_null($request->get('description'))) {
+                    throw ValidationException::withMessages([
+                        'description' => 'description is required when service is a main service',
+                    ]);
+                }
                 Service::create([
                     'parent_id' => $request->get('parent_service') != '0' ? $request->get('parent_service') : null,
                     'page_id' => $page->id,
                     'name' => $request->get('name'),
-                    'description' => $request->get('description')
+                    'description' => $description
                 ]);
             });
             session()->flash('success', 'Service Created Successfully');
             return redirect()->route('admin.services.index');
         } catch (Exception $e) {
-            dd($e);
+            if (get_class($e) === ValidationException::class) {
+                throw $e;
+            }
             Log::error($e);
             session()->flash('error', 'Something went wrong!');
             return redirect()->route('admin.services.create');

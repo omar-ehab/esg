@@ -29,7 +29,7 @@ class CreateServiceRequest extends FormRequest
             'service_banner_image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120', new BannerImageSizeRule()],
             'parent_service' => 'sometimes|integer',
             'name' => 'required|string',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
         ];
     }
 }

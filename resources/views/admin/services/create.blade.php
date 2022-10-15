@@ -100,7 +100,6 @@
                                     <label class="form-label"
                                            for="description">
                                         Description
-                                        <span class="text-danger">*</span>
                                     </label>
                                     <textarea name="description" id="description" class="form-control"
                                               rows="5">{{ old('description') }}</textarea>

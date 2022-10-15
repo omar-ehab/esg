@@ -35,7 +35,6 @@
                                     <label for="image"
                                            class="form-label @error('service_banner_image') text-danger @enderror">
                                         Image
-                                        <span class="text-danger">*</span>
                                     </label>
                                     <input class="form-control @error('service_banner_image') is-invalid @enderror"
                                            type="file"
@@ -97,7 +96,6 @@
                                     <label class="form-label"
                                            for="description">
                                         Description
-                                        <span class="text-danger">*</span>
                                     </label>
                                     <textarea name="description" id="description" class="form-control"
                                               rows="5">{{ old('description', $service->description) }}</textarea>
