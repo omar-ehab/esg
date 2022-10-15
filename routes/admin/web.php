@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PortDetailsController;
 use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SubscribersController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //about
     Route::resource('about', AboutUsController::class)->only(['index', 'edit', 'update']);
+
+    //about
+    Route::resource('services', ServicesController::class)->except(['show']);
 
     //career
     Route::resource('jobs', JobsController::class)->except(['show']);
