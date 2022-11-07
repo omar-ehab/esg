@@ -93,6 +93,18 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-12">
+                                    <label class="form-label @error('card_image_path') text-danger @enderror"
+                                           for="card_image_path">
+                                        Service Image
+                                    </label>
+                                    <input class="form-control @error('card_image_path') is-invalid @enderror"
+                                           type="file"
+                                           id="card_image_path"
+                                           name="card_image_path" accept="image/*"/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
                                     <label class="form-label"
                                            for="description">
                                         Description

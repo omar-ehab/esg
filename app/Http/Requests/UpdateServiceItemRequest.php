@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\BannerImageSizeRule;
 use Illuminate\Foundation\Http\FormRequest;
+use JetBrains\PhpStorm\ArrayShape;
 
-class CreateServiceRequest extends FormRequest
+class UpdateServiceItemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,13 @@ class CreateServiceRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
+    #[ArrayShape(['title' => "string", 'description' => "string", 'image_path' => "string[]"])]
     public function rules(): array
     {
         return [
-            'service_banner_title' => 'required|string',
-            'service_banner_image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120', new BannerImageSizeRule()],
-            'parent_service' => 'sometimes|integer',
-            'name' => 'required|string',
+            'title' => 'required|string',
             'description' => 'nullable|string',
-            'card_image_path' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120'],
+            'image_path' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120'],
         ];
     }
 }

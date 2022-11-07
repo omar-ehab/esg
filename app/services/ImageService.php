@@ -101,6 +101,96 @@ class ImageService extends StorageService
      * @param $file
      * @return string
      */
+    public static function saveServiceImage($file): string
+    {
+        // create icons directory if not exists
+        $service_images_dir = self::getServiceImagesDir();
+        parent::createDirIfNotExists($service_images_dir);
+
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/services/' . $image_name);
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        return 'services/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @param string|null $oldPath
+     * @return string
+     */
+    public static function updateServiceImage($file, ?string $oldPath): string
+    {
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/services/' . $image_name);
+
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        //delete old image from storage
+        if ($oldPath) {
+            self::delete($oldPath);
+        }
+
+        return 'services/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @return string
+     */
+    public static function saveServiceItemImage($file): string
+    {
+        // create icons directory if not exists
+        $service_items_images_dir = self::getServiceItemImagesDir();
+        parent::createDirIfNotExists($service_items_images_dir);
+
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/service_items/' . $image_name);
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        return 'service_items/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @param string|null $oldPath
+     * @return string
+     */
+    public static function updateServiceItemImage($file, ?string $oldPath): string
+    {
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/service_items/' . $image_name);
+
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        //delete old image from storage
+        if ($oldPath) {
+            self::delete($oldPath);
+        }
+
+        return 'service_items/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @return string
+     */
     public static function saveCertificateImage($file): string
     {
         // create icons directory if not exists
@@ -149,6 +239,22 @@ class ImageService extends StorageService
     private static function getBannerImagesDir(): string
     {
         return storage_path('app/public/banners');
+    }
+
+    /**
+     * @return string
+     */
+    private static function getServiceImagesDir(): string
+    {
+        return storage_path('app/public/services');
+    }
+
+    /**
+     * @return string
+     */
+    private static function getServiceItemImagesDir(): string
+    {
+        return storage_path('app/public/service_items');
     }
 
     /**

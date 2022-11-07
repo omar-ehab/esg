@@ -29,6 +29,7 @@ class UpdateServiceRequest extends FormRequest
             'parent_service' => 'sometimes|integer',
             'name' => 'required|string',
             'description' => 'nullable|string',
+            'card_image_path' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120'],
         ];
     }
 }

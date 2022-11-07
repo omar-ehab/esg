@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Service;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
@@ -47,6 +48,8 @@ class AppServiceProvider extends ServiceProvider
 
         $profile_link = $files['profile_link'] ?? '';
 
+        $services = Service::with('children')->where('parent_id', null)->get();
+
         View::share('facebook', $facebook);
         View::share('linkedin', $linkedin);
         View::share('instagram', $instagram);
@@ -57,5 +60,6 @@ class AppServiceProvider extends ServiceProvider
         View::share('phone', $phone);
 
         View::share('profile_link', $profile_link);
+        View::share('services', $services);
     }
 }

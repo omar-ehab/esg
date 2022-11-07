@@ -10,6 +10,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\PortsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -40,5 +41,8 @@ Route::post('/newsletter', NewsLetterController::class)->name('newsletter.save')
 
 Route::post('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/search-result', [SearchController::class, 'searchResult'])->name('search-result');
+
+Route::get('/services/{service}', [ServicesController::class, 'show'])->name('services.show');
+
 
 

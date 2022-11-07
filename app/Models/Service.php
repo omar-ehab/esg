@@ -19,6 +19,7 @@ class Service extends Model
         'name',
         'slug',
         'description',
+        'card_image_path',
     ];
 
     public function parent(): BelongsTo

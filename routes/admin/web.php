@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PortDetailsController;
 use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServiceItemsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SubscribersController;
@@ -39,6 +40,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //about
     Route::resource('services', ServicesController::class)->except(['show']);
+    Route::resource('services/{service}/items', ServiceItemsController::class)->except(['show']);
+
 
     //career
     Route::resource('jobs', JobsController::class)->except(['show']);

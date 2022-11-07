@@ -31,68 +31,20 @@
                             </div>
                         </div>
                     </li>
-                    <a href="#">
-                        <h3 class="title-index cap">Container & Cargo Storage</h3>
-                    </a>
-                    <ul class="list-unstyled ct-sidenav-list">
-                        <li>
-                            <a href="#">Warehousing</a>
-                        </li>
-                        <li>
-                            <a href="#">Transportation</a>
-                        </li>
-                    </ul>
-                    <a href="#">
-                        <h3 class="title-index cap">Shipping</h3>
-                    </a>
-                    <ul class="list-unstyled ct-sidenav-list">
-                        <li>
-                            <a href="#">Ship Agency Services</a>
-                        </li>
-                        <li>
-                            <a href="#">Suez Canal Transit</a>
-                        </li>
-                        <li>
-                            <a href="#">Husbandry Services</a>
-                        </li>
-
-                    </ul>
-
-                    <a href="#">
-                        <h3 class="title-index cap">Logistics</h3>
-                    </a>
-                    <ul class="list-unstyled ct-sidenav-list">
-                        <li>
-                            <a href="#">Ship Spares Logistics</a>
-                        </li>
-                        <li>
-                            <a href="#">Freight Contracting</a>
-                        </li>
-                        <li>
-                            <a href="#">Project Cargo Handling</a>
-                        </li>
-                        <li>
-                            <a href="#">Hanging Garments</a>
-                        </li>
-                        <li>
-                            <a href="#">Inland & Overland Transport services</a>
-                        </li>
-                        <li>
-                            <a href="#">Customs Clearance Services</a>
-                        </li>
-                    </ul>
-
-                    <a href="#">
-                        <h3 class="title-index cap">Reefer</h3>
-                    </a>
-                    <ul class="list-unstyled ct-sidenav-list">
-                        <li>
-                            <a href="#">Perishable Cargo & Agro products</a>
-                        </li>
-                        <li>
-                            <a href="#">Sea / Land Reefer Trailers Services</a>
-                        </li>
-                    </ul>
+                    @foreach($services as $service)
+                        <a href="{{ route('services.show', $service->slug) }}">
+                            <h3 class="title-index cap">{{ $service->name }}</h3>
+                        </a>
+                        @if($service->children)
+                            <ul class="list-unstyled ct-sidenav-list">
+                                @foreach($service->children as $child)
+                                    <li>
+                                        <a href="{{ route('services.show', $child->slug) }}">{{ $child->name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    @endforeach
                 </ul>
             </div>
 

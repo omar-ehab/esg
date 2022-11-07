@@ -71,11 +71,16 @@ class ServicesController extends Controller
                         'description' => 'description is required when service is a main service',
                     ]);
                 }
+                $card_image_path = null;
+                if ($request->hasFile('card_image_path')) {
+                    $card_image_path = ImageService::saveServiceImage($request->file('card_image_path'));
+                }
                 Service::create([
                     'parent_id' => $request->get('parent_service') != '0' ? $request->get('parent_service') : null,
                     'page_id' => $page->id,
                     'name' => $request->get('name'),
-                    'description' => $description
+                    'description' => $description,
+                    'card_image_path' => $card_image_path,
                 ]);
             });
             session()->flash('success', 'Service Created Successfully');
@@ -114,15 +119,21 @@ class ServicesController extends Controller
         try {
             DB::transaction(function () use ($request, $service) {
                 if ($request->hasFile('service_banner_image')) {
-                    $image_path = ImageService::updateBannerImage($request->file('service_banner_image'), $service->banner->image_path);
-                    $service->banner->update([
+                    $image_path = ImageService::updateBannerImage($request->file('service_banner_image'), $service->page->banner->image_path);
+                    $service->page->banner->update([
                         'image_path' => $image_path
                     ]);
                 }
+                $card_image_path = $service->card_image_path;
+                if ($request->hasFile('card_image_path')) {
+                    $card_image_path = ImageService::updateServiceImage($request->file('card_image_path'), $service->card_image_path);
+                }
+                $parent_service_id = $request->get('parent_service') != '0' ? $request->get('parent_service') : null;
                 $service->update([
-                    'parent_id' => $request->get('parent_service'),
+                    'parent_id' => $parent_service_id,
                     'name' => $request->get('name'),
-                    'description' => $request->get('description')
+                    'description' => $request->get('description'),
+                    'card_image_path' => $card_image_path,
                 ]);
             });
             session()->flash('success', 'Service Updated Successfully');
