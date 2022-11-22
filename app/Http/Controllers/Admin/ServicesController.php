@@ -8,7 +8,7 @@ use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Banner;
 use App\Models\Page;
 use App\Models\Service;
-use App\Services\ImageService;
+use App\services\ImageService;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
