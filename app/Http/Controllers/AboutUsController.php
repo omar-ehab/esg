@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\models\About;
+use App\Models\About;
 use App\Models\Banner;
 use App\Models\Certificate;
 use App\Models\Page;
