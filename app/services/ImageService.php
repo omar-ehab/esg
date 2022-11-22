@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Intervention\Image\Facades\Image;
 
-class ImageService extends StorageService
+class ImageService
 {
     /**
      * @param $file
@@ -271,6 +271,27 @@ class ImageService extends StorageService
     private static function getCertificateImagesDir(): string
     {
         return storage_path('app/public/certificates');
+    }
+    
+    /**
+     * @param string $file_name
+     * @return bool
+     */
+    public static function delete(string $file_name): bool
+    {
+        return Storage::disk('public')->delete($file_name);
+    }
+
+    /**
+     * @param string $path
+     * @return void
+     */
+    protected static function createDirIfNotExists(string $path): void
+    {
+        $exists = File::isDirectory($path);
+        if (!$exists) {
+            File::makeDirectory($path, 0644, true);
+        }
     }
 
 }
