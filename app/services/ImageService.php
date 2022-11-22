@@ -150,7 +150,7 @@ class ImageService
     {
         // create icons directory if not exists
         $service_items_images_dir = self::getServiceItemImagesDir();
-        parent::createDirIfNotExists($service_items_images_dir);
+        self::createDirIfNotExists($service_items_images_dir);
 
         // create image name and path
         $time = time();
@@ -195,7 +195,7 @@ class ImageService
     {
         // create icons directory if not exists
         $certificate_images_dir = self::getCertificateImagesDir();
-        parent::createDirIfNotExists($certificate_images_dir);
+        self::createDirIfNotExists($certificate_images_dir);
 
         // create image name and path
         $time = time();
