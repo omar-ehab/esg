@@ -14,7 +14,7 @@ class ImageService
     {
         // create icons directory if not exists
         $banners_images_dir = self::getBannerImagesDir();
-        parent::createDirIfNotExists($banners_images_dir);
+        self::createDirIfNotExists($banners_images_dir);
 
         // create image name and path
         $time = time();
@@ -60,7 +60,7 @@ class ImageService
     {
         // create icons directory if not exists
         $news_images_dir = self::getNewsImagesDir();
-        parent::createDirIfNotExists($news_images_dir);
+        self::createDirIfNotExists($news_images_dir);
 
         // create image name and path
         $time = time();
@@ -286,7 +286,7 @@ class ImageService
      * @param string $path
      * @return void
      */
-    protected static function createDirIfNotExists(string $path): void
+    private static function createDirIfNotExists(string $path): void
     {
         $exists = File::isDirectory($path);
         if (!$exists) {
