@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
-use App\models\Locations;
-use App\models\MainServices;
-use App\models\Meta;
+use App\Models\Locations;
+use App\Models\MainServices;
+use App\Models\Meta;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
