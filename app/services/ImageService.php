@@ -2,9 +2,11 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
-class ImageService extends StorageService
+class ImageService
 {
     /**
      * @param $file
@@ -14,7 +16,7 @@ class ImageService extends StorageService
     {
         // create icons directory if not exists
         $banners_images_dir = self::getBannerImagesDir();
-        parent::createDirIfNotExists($banners_images_dir);
+        self::createDirIfNotExists($banners_images_dir);
 
         // create image name and path
         $time = time();
@@ -60,7 +62,7 @@ class ImageService extends StorageService
     {
         // create icons directory if not exists
         $news_images_dir = self::getNewsImagesDir();
-        parent::createDirIfNotExists($news_images_dir);
+        self::createDirIfNotExists($news_images_dir);
 
         // create image name and path
         $time = time();
@@ -105,7 +107,7 @@ class ImageService extends StorageService
     {
         // create icons directory if not exists
         $service_images_dir = self::getServiceImagesDir();
-        parent::createDirIfNotExists($service_images_dir);
+        self::createDirIfNotExists($service_images_dir);
 
         // create image name and path
         $time = time();
@@ -150,7 +152,7 @@ class ImageService extends StorageService
     {
         // create icons directory if not exists
         $service_items_images_dir = self::getServiceItemImagesDir();
-        parent::createDirIfNotExists($service_items_images_dir);
+        self::createDirIfNotExists($service_items_images_dir);
 
         // create image name and path
         $time = time();
@@ -195,7 +197,7 @@ class ImageService extends StorageService
     {
         // create icons directory if not exists
         $certificate_images_dir = self::getCertificateImagesDir();
-        parent::createDirIfNotExists($certificate_images_dir);
+        self::createDirIfNotExists($certificate_images_dir);
 
         // create image name and path
         $time = time();
@@ -271,6 +273,27 @@ class ImageService extends StorageService
     private static function getCertificateImagesDir(): string
     {
         return storage_path('app/public/certificates');
+    }
+    
+    /**
+     * @param string $file_name
+     * @return bool
+     */
+    public static function delete(string $file_name): bool
+    {
+        return Storage::disk('public')->delete($file_name);
+    }
+
+    /**
+     * @param string $path
+     * @return void
+     */
+    private static function createDirIfNotExists(string $path): void
+    {
+        $exists = File::isDirectory($path);
+        if (!$exists) {
+            File::makeDirectory($path, 0644, true);
+        }
     }
 
 }
