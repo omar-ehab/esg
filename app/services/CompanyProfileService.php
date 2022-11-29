@@ -10,7 +10,7 @@ class CompanyProfileService extends StorageService
      */
     public static function saveProfile($file): string
     {
-        // create cvs directory if not exists
+        // create profiles directory if not exists
         $profiles_dir = self::getProfilesDir();
         parent::createDirIfNotExists($profiles_dir);
         $uniqueFileName = uniqid() . $file->getClientOriginalName();
