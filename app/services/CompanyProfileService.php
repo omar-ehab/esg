@@ -2,7 +2,10 @@
 
 namespace App\Services;
 
-class CompanyProfileService extends StorageService
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+
+class CompanyProfileService
 {
     /**
      * @param $file
@@ -12,7 +15,7 @@ class CompanyProfileService extends StorageService
     {
         // create profiles directory if not exists
         $profiles_dir = self::getProfilesDir();
-        parent::createDirIfNotExists($profiles_dir);
+        self::createDirIfNotExists($profiles_dir);
         $uniqueFileName = uniqid() . $file->getClientOriginalName();
         $file->move($profiles_dir, $uniqueFileName);
 
@@ -26,6 +29,27 @@ class CompanyProfileService extends StorageService
     private static function getProfilesDir(): string
     {
         return storage_path('app/public/profiles');
+    }
+
+    /**
+     * @param string $file_name
+     * @return bool
+     */
+    public static function delete(string $file_name): bool
+    {
+        return Storage::disk('public')->delete($file_name);
+    }
+
+    /**
+     * @param string $path
+     * @return void
+     */
+    protected static function createDirIfNotExists(string $path): void
+    {
+        $exists = File::isDirectory($path);
+        if (!$exists) {
+            File::makeDirectory($path, 0644, true);
+        }
     }
 
 }
