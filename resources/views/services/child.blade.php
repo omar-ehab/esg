@@ -1,5 +1,11 @@
 @extends('layouts.main')
 @section('content')
+    <header class="top-area single-page" id="home">
+        <div class="welcome-area"
+             style="background-image: {{ 'url(\''. asset('storage/' . $service->page->banner->image_path ) . '\')'}};background-position: center;background-size: cover;">
+            <div class="area-bg"></div>
+        </div>
+    </header>
 
     <section class="blog-area blog-page section-padding">
         <div class="container">
@@ -7,7 +13,6 @@
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="text-center">
                         <h2>{{ $service->page->banner->title }}</h2>
-
                     </div>
                 </div>
             </div>
