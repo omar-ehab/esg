@@ -7,7 +7,7 @@ use App\Http\Requests\CreateServiceItemRequest;
 use App\Http\Requests\UpdateServiceItemRequest;
 use App\Models\Service;
 use App\Models\ServiceItem;
-use App\Services\ImageService;
+use App\services\ImageService;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
