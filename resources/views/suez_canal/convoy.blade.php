@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
-                        <video controls="" autoplay="" class="sc-video">
+                        <video controls="" class="sc-video">
                             <source src="{{ asset('assets/themes/theme_en/video/sc_convoy.mp4') }}" type="video/mp4">
                         </video>
                         <p class="copyright-video">Copyrights Suez Canal Authority</p>
