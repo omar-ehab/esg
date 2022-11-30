@@ -266,7 +266,7 @@
                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
 
                         <div class="client-promo useful-links">
-                            <a href="#">
+                            <a href="{{ route('ports.index') }}">
                                 <img src="{{asset('assets/themes/theme_en/img/port.jpg')}}">
                                 <h3> Egyptian Sea Ports</h3>
                             </a>
@@ -285,7 +285,7 @@
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
                         <div class="client-promo useful-links">
-                            <a href="#">
+                            <a href="{{ route('maritime_laws.index') }}">
                                 <img src="{{asset('assets/themes/theme_en/img/law.png')}}">
                                 <h3>Maritime Law</h3>
                             </a>

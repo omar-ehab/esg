@@ -51,6 +51,12 @@
                 <div data-i18n="Services">Services</div>
             </a>
         </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.maritime_laws') ? 'active' : '' }}">
+            <a href="{{ route('admin.maritime_laws.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-file-pdf"></i>
+                <div data-i18n="Maritime Laws">Maritime Laws</div>
+            </a>
+        </li>
         {{--Contact--}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Contact</span>

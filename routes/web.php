@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiriesController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\MaritimeLawsController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\PortsController;
@@ -43,6 +44,9 @@ Route::post('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/search-result', [SearchController::class, 'searchResult'])->name('search-result');
 
 Route::get('/services/{service}', [ServicesController::class, 'show'])->name('services.show');
+
+
+Route::get('/maritime_laws', [MaritimeLawsController::class, 'index'])->name('maritime_laws.index');
 
 
 

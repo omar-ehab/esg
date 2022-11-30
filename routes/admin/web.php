@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ContactUsMessagesController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InquiriesController;
 use App\Http\Controllers\Admin\JobsController;
+use App\Http\Controllers\Admin\MaritimeLawsController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PortDetailsController;
 use App\Http\Controllers\Admin\PortsController;
@@ -61,6 +62,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //news
     Route::resource('news', NewsController::class)->except(['show']);
+
+    //Maritime Laws
+    Route::resource('maritime_laws', MaritimeLawsController::class)->except(['show', 'edit', 'update']);
 
     //ports
     Route::resource('ports', PortsController::class);
