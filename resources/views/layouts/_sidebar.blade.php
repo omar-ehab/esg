@@ -63,6 +63,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('equipment.index') }}">
+                            <h3 class="title-index">Equipment</h3>
+                        </a>
+                    </li>
+                    <li>
                         <a href="#">
                             <h3 class="title-index">Our Offices</h3>
                         </a>

@@ -25,7 +25,7 @@ class CreateEquipmentRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120'],
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:5120'],
         ];
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiriesController;
 use App\Http\Controllers\LocationController;
@@ -47,6 +48,7 @@ Route::get('/services/{service}', [ServicesController::class, 'show'])->name('se
 
 
 Route::get('/maritime_laws', [MaritimeLawsController::class, 'index'])->name('maritime_laws.index');
+Route::get('/equipment', [EquipmentController::class, 'index'])->name('equipment.index');
 
 
 

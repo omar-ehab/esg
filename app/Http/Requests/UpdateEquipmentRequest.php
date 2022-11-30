@@ -25,7 +25,7 @@ class UpdateEquipmentRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:5120'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:5120'],
         ];
     }
 }
