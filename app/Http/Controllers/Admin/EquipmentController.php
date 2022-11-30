@@ -7,7 +7,7 @@ use App\Http\Requests\CreateEquipmentRequest;
 use App\Http\Requests\UpdateEquipmentRequest;
 use App\Models\Equipment;
 use App\Models\EquipmentDetail;
-use App\Services\ImageService;
+use App\services\ImageService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;

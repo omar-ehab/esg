@@ -7,7 +7,7 @@ use App\Models\Banner;
 use App\Models\Career;
 use App\Models\Job;
 use App\Models\Page;
-use App\Services\CvService;
+use App\services\CvService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
