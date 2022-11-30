@@ -6,6 +6,7 @@ use App\Models\Banner;
 use App\Models\Country;
 use App\Models\News;
 use App\Models\Page;
+use App\Models\Service;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $countries = Country::all();
         $inquiryServices = [];
         $news = News::latest('created_at')->first();
-        return view('index', compact('banners', 'countries', 'inquiryServices', 'news'));
+        $services = Service::where('parent_id', null)->get();
+        return view('index', compact('banners', 'countries', 'inquiryServices', 'news', 'services'));
     }
 }

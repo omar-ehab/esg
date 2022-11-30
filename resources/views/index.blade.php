@@ -25,74 +25,36 @@
         </div>
     </header>
 
-    {{--    <section class="service-area">--}}
-    {{--        <div class="service-top-area padding-top2">--}}
-    {{--            <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">--}}
-    {{--                <div class="about-content-area wow fadeIn">--}}
-    {{--                    <div class="title-services">--}}
-    {{--                        <h2>Our Integrated Services</h2>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
+    <section class="service-area">
+        <div class="service-top-area padding-top2">
+            <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                <div class="about-content-area wow fadeIn">
+                    <div class="title-services">
+                        <h2>Our Integrated Services</h2>
+                    </div>
+                </div>
+            </div>
 
-    {{--            <div class="container-service">--}}
-    {{--                @foreach($services as $service)--}}
+            <div class="container-service">
+                @foreach($services as $service)
+                    <div class="col-md-3 col-lg-3 col-xs-6 col-sm-6 hover-blur">
+                        <div class="box">
+                            <a href="{{ route('services.show', $service->slug) }}" title="{{ $service->name }}">
+                                <img src="{{ asset('storage/' . $service->card_image_path) }}"
+                                     alt="{{ $service->name }}"/>
+                                <h2><span class="text-white"><i class="fa fa-link"></i></span></h2>
+                            </a>
+                            <a href="{{ route('services.show', $service->slug) }}">
+                                <h4 class="text-center service-name">{{ $service->name }}</h4>
+                            </a>
+                        </div>
+                    </div>
 
-    {{--                    <div class="col-md-3 col-lg-3 col-xs-6 col-sm-6 hover-blur">--}}
+                @endforeach
+            </div>
+        </div>
 
-    {{--                        @if($service->service_id == 1)--}}
-
-    {{--                            <div class="box">--}}
-    {{--                                <a href="{{ route('shipping') }} " title="">--}}
-    {{--                                    <img src="{{asset('/serviceImages')}}/{{ $service->service_image }}" alt=""/>--}}
-    {{--                                    <h2><span class="text-white"><i class="fa fa-link"></i></span></h2>--}}
-    {{--                                </a>--}}
-    {{--                                <a href="{{ route('shipping')}}">--}}
-    {{--                                    <h4 class="text-center service-name">{{ $service->service_name }}</h4>--}}
-    {{--                                </a>--}}
-    {{--                            </div>--}}
-
-    {{--                        @elseif($service->service_id == 2)--}}
-    {{--                            <div class="box">--}}
-    {{--                                <a href="{{ route('logistics') }} " title="">--}}
-    {{--                                    <img src="{{asset('/serviceImages')}}/{{ $service->service_image }}" alt=""/>--}}
-    {{--                                    <h2><span class="text-white"><i class="fa fa-link"></i></span></h2>--}}
-    {{--                                </a>--}}
-    {{--                                <a href="{{ route('logistics') }}">--}}
-    {{--                                    <h4 class="text-center service-name">{{ $service->service_name }}</h4>--}}
-    {{--                                </a>--}}
-    {{--                            </div>--}}
-    {{--                        @elseif($service->service_id == 3)--}}
-    {{--                            <div class="box">--}}
-    {{--                                <a href="{{ route('suezCanal') }} " title="">--}}
-    {{--                                    <img src="{{asset('/serviceImages')}}/{{ $service->service_image }}" alt=""/>--}}
-    {{--                                    <h2><span class="text-white"><i class="fa fa-link"></i></span></h2>--}}
-    {{--                                </a>--}}
-    {{--                                <a href="{{ route('suezCanal') }}">--}}
-    {{--                                    <h4 class="text-center service-name">{{ $service->service_name }}</h4>--}}
-    {{--                                </a>--}}
-    {{--                            </div>--}}
-    {{--                        @else--}}
-    {{--                            <div class="box">--}}
-    {{--                                <a href="{{ route('depotStorage') }} " title="">--}}
-    {{--                                    <img src="{{asset('/serviceImages')}}/{{ $service->service_image }}" alt=""/>--}}
-    {{--                                    <h2><span class="text-white"><i class="fa fa-link"></i></span></h2>--}}
-    {{--                                </a>--}}
-    {{--                                <a href="{{ route('depotStorage') }}">--}}
-    {{--                                    <h4 class="text-center service-name">{{ $service->service_name }}</h4>--}}
-    {{--                                </a>--}}
-    {{--                            </div>--}}
-    {{--                        @endif--}}
-
-    {{--                    </div>--}}
-
-    {{--                @endforeach--}}
-
-
-    {{--            </div>--}}
-    {{--        </div>--}}
-
-    {{--    </section>--}}
+    </section>
 
     {{--    <section class="promo-area">--}}
     {{--        <div class="promo-top-area section-padding wow fadeIn">--}}
