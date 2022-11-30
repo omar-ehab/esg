@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateCompanyProfileRequest;
 use App\Http\Requests\UpdateContactInformationRequest;
 use App\Http\Requests\UpdateSocialMediaRequest;
 use App\services\CompanyProfileService;
-use App\Services\ImageService;
+use App\services\ImageService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
