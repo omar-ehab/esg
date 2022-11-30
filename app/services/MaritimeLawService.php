@@ -16,7 +16,7 @@ class MaritimeLawService
         // create profiles directory if not exists
         $pdf_dir = self::getPdfDir();
         self::createDirIfNotExists($pdf_dir);
-        $uniqueFileName = uniqid() . $file->getClientOriginalName();
+        $uniqueFileName = uniqid() . trim($file->getClientOriginalName());
         $file->move($pdf_dir, $uniqueFileName);
 
         return 'maritime_laws/' . $uniqueFileName;
