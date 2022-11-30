@@ -45,6 +45,17 @@
                             </ul>
                         @endif
                     @endforeach
+                    <a href="{{ route('services.suez-canal') }}">
+                        <h3 class="title-index cap">Suez Canal</h3>
+                    </a>
+                    <ul class="list-unstyled ct-sidenav-list">
+                        <li>
+                            <a href="{{ route('services.suez-canal.about') }}">About Suez Canal</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('services.suez-canal.convoy') }}">Suez Canal Convoy</a>
+                        </li>
+                    </ul>
                 </ul>
             </div>
 
@@ -99,5 +110,14 @@
 
         </div>
         <div class="separator"></div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <div class="toll-box-menu">
+                    <h1>Suez Canal Toll Calculator</h1>
+                    <img src="{{ asset('assets/themes/theme_en/img/suez-canal.png') }}">
+                    <a href="#" class="btn-calculator">Calculate <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

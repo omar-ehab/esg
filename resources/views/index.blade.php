@@ -355,7 +355,7 @@
 
                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
                         <div class="client-promo useful-links">
-                            <a href="#">
+                            <a href="{{ route('services.suez-canal') }}">
                                 <img src="{{asset('assets/themes/theme_en/img/useful-links.png')}}">
                                 <h3>Suez Canal</h3>
                             </a>

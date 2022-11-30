@@ -13,6 +13,7 @@ use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PortsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\SuezCanalController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -44,6 +45,10 @@ Route::post('/newsletter', NewsLetterController::class)->name('newsletter.save')
 Route::post('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/search-result', [SearchController::class, 'searchResult'])->name('search-result');
 
+Route::get('/services/suez-canal', [SuezCanalController::class, 'index'])->name('services.suez-canal');
+Route::get('/services/suez-canal/about', [SuezCanalController::class, 'about'])->name('services.suez-canal.about');
+Route::get('/services/suez-canal/convoy', [SuezCanalController::class, 'convoy'])->name('services.suez-canal.convoy');
+Route::get('/services/suez-canal/calculator', [SuezCanalController::class, 'calculator'])->name('services.suez-canal.calculator');
 Route::get('/services/{service}', [ServicesController::class, 'show'])->name('services.show');
 
 
