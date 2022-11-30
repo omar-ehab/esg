@@ -115,7 +115,8 @@
                 <div class="toll-box-menu">
                     <h1>Suez Canal Toll Calculator</h1>
                     <img src="{{ asset('assets/themes/theme_en/img/suez-canal.png') }}">
-                    <a href="#" class="btn-calculator">Calculate <i class="fa fa-angle-right"></i></a>
+                    <a href="{{ route('services.suez-canal.calculator') }}" class="btn-calculator">Calculate <i
+                            class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
