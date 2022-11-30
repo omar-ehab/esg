@@ -234,6 +234,51 @@ class ImageService
         return 'certificates/' . $image_name;
     }
 
+    /**
+     * @param $file
+     * @return string
+     */
+    public static function saveEquipmentImage($file): string
+    {
+        // create icons directory if not exists
+        $equipment_images_dir = self::getEquipmentImagesDir();
+        self::createDirIfNotExists($equipment_images_dir);
+
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/equipment/' . $image_name);
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        return 'equipment/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @param string|null $oldPath
+     * @return string
+     */
+    public static function updateEquipmentImage($file, ?string $oldPath): string
+    {
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/equipment/' . $image_name);
+
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        //delete old image from storage
+        if ($oldPath) {
+            self::delete($oldPath);
+        }
+
+        return 'equipment/' . $image_name;
+    }
+
 
     /**
      * @return string
@@ -241,6 +286,14 @@ class ImageService
     private static function getBannerImagesDir(): string
     {
         return storage_path('app/public/banners');
+    }
+
+    /**
+     * @return string
+     */
+    private static function getEquipmentImagesDir(): string
+    {
+        return storage_path('app/public/equipment');
     }
 
     /**
@@ -274,7 +327,7 @@ class ImageService
     {
         return storage_path('app/public/certificates');
     }
-    
+
     /**
      * @param string $file_name
      * @return bool

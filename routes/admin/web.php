@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\CareersController;
 use App\Http\Controllers\Admin\CertificatesController;
 use App\Http\Controllers\Admin\ContactUsMessagesController;
+use App\Http\Controllers\Admin\EquipmentController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InquiriesController;
 use App\Http\Controllers\Admin\JobsController;
@@ -65,6 +66,12 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //Maritime Laws
     Route::resource('maritime_laws', MaritimeLawsController::class)->except(['show', 'edit', 'update']);
+
+    //Equipment
+    Route::resource('equipment', EquipmentController::class)->except(['show']);
+
+    Route::put('equipment/{equipment}/update/{equipmentDetail}', [EquipmentController::class, 'update_equipment_details'])->name('equipment.update_equipment_details');
+    Route::delete('equipment/{equipment}/destroy/{equipmentDetail}', [EquipmentController::class, 'destroy_equipment_details'])->name('equipment.destroy_equipment_details');
 
     //ports
     Route::resource('ports', PortsController::class);
