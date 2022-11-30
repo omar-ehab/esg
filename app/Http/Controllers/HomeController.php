@@ -30,6 +30,7 @@ class HomeController extends Controller
         $agent = $store->get('agent', []);
         $home_popup = $store->get('home_popup', []);
 
+        $agent_is_active = $agent['is_active'] ?? '';
         $agent_image = $agent['agent_image'] ?? '';
         $description = $agent['description'] ?? '';
         $youtube_embed = $agent['youtube_embed'] ?? '';
@@ -44,6 +45,7 @@ class HomeController extends Controller
             'inquiryServices',
             'news',
             'services',
+            'agent_is_active',
             'agent_image',
             'description',
             'youtube_embed',

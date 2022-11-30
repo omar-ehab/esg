@@ -102,6 +102,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::put('settings/home_popup', [SettingsController::class, 'home_popup'])->name('settings.home_popup');
 
     Route::put('settings/home_popup/{status}', [SettingsController::class, 'update_home_popup'])->name('settings.update_home_popup');
+    Route::put('settings/exclusive_agent/{status}', [SettingsController::class, 'update_exclusive_agent'])->name('settings.update_exclusive_agent');
 
     //subscribers
     Route::resource('subscribers', SubscribersController::class)->only(['index', 'destroy']);

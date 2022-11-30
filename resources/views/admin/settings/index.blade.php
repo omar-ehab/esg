@@ -196,6 +196,25 @@
                 <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
                         <h5 class="mb-0">Exclusive Agent Data</h5>
+                        @if($agent_is_active)
+                            <form action="{{ route('admin.settings.update_exclusive_agent', 'hide') }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button class="btn btn-danger">
+                                    <i class="bx bxs-hide me-1"></i>
+                                    Hide
+                                </button>
+                            </form>
+                        @else
+                            <form action="{{ route('admin.settings.update_exclusive_agent', 'show') }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button class="btn btn-success">
+                                    <i class="bx bxs-show me-1"></i>
+                                    Show
+                                </button>
+                            </form>
+                        @endif
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.settings.exclusive_agent') }}" method="POST"

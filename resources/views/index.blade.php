@@ -24,85 +24,88 @@
             @endforeach
         </div>
     </header>
-
-    <section>
-        <div class="inquiry-area zim-section">
-            <div class="container">
-                <div
-                    class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12 d-flex align-items-center">
-                    <div class="left-portion">
-                        <h2 class="zim"><span style="color: #EA8A07">ESG</span> is the exclusive agent for RC line in
-                            egypt
-                        </h2>
-                    </div>
-                    <div class="right-portion">
-                        <img src="{{ asset('storage/' . $agent_image) }}" style="width: 75%;">
+    @if($agent_is_active)
+        <section>
+            <div class="inquiry-area zim-section">
+                <div class="container">
+                    <div
+                        class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12 d-flex align-items-center">
+                        <div class="left-portion">
+                            <h2 class="zim"><span style="color: #EA8A07">ESG</span> is the exclusive agent for RC line
+                                in
+                                egypt
+                            </h2>
+                        </div>
+                        <div class="right-portion">
+                            <img src="{{ asset('storage/' . $agent_image) }}" style="width: 75%;">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="service-area videoarea"
-             style="background-image: url({{ asset('assets/themes/theme_en/img/welcome.png') }});">
-        <div class="service-top-area padding-top3 video-overlay">
-            <div class="container">
-                <div class="row justify">
-                    <div class="col-md-6 col-lg-6 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
-                        <div class="section-title mb-30 text-left">
-                            <div class="about-content-area wow fadeIn">
-                                <div class="about-content">
-                                    <h2>Welcome TO <span style="color: #EA8A07">ESG</span></h2>
-                                    @if(strlen($description))
-                                        <p>{!! $description !!}</p>
-                                    @endif
-                                </div>
+        </section>
 
+        <section class="service-area videoarea"
+                 style="background-image: url({{ asset('assets/themes/theme_en/img/welcome.png') }});">
+            <div class="service-top-area padding-top3 video-overlay">
+                <div class="container">
+                    <div class="row justify">
+                        <div class="col-md-6 col-lg-6 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                            <div class="section-title mb-30 text-left">
+                                <div class="about-content-area wow fadeIn">
+                                    <div class="about-content">
+                                        <h2>Welcome TO <span style="color: #EA8A07">ESG</span></h2>
+                                        @if(strlen($description))
+                                            <p>{!! $description !!}</p>
+                                        @endif
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-6 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                            <div class="relative-boxvideo">
+                                    <?php
+                                    $url = str_replace("watch?v=", "embed/", $youtube_embed);
+                                    ?>
+                                    <?php $videoArr = (explode('/', $url)); ?>
+                                    <?php $code = end($videoArr); ?>
+
+                                <img src="https://img.youtube.com/vi/<?php echo $code ?>/0.jpg">
+                                <div class="play-video text-center"><a class="view-video popup-youtube"
+                                                                       href="javascript:; "
+                                                                       data-toggle="modal"
+                                                                       data-target="#exampleModalvideo">
+                                        <i class="fa fa-play"></i> </a></div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <div class="modal fade" id="exampleModalvideo" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modalvideo" role="document">
+                <div class="modal-content">
 
-                    <div class="col-md-6 col-lg-6 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
-                        <div class="relative-boxvideo">
+                    <div class="modal-body">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
                             <?php $url = $youtube_embed ?>
                             <?php
                             $url = str_replace("watch?v=", "embed/", $url);
                             ?>
-                            <?php $videoArr = (explode('/', $url)); ?>
-                            <?php $code = end($videoArr); ?>
-
-                            <img src="https://img.youtube.com/vi/<?php echo $code ?>/0.jpg">
-                            <div class="play-video text-center"><a class="view-video popup-youtube" href="javascript:; "
-                                                                   data-toggle="modal" data-target="#exampleModalvideo">
-                                    <i class="fa fa-play"></i> </a></div>
-                        </div>
+                        <iframe width="100%" height="500" src="{{$url}}?autoplay=0&loop=1" frameborder="0">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!--end video area-->
-    <!--    modal for video-->
-    <div class="modal fade" id="exampleModalvideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modalvideo" role="document">
-            <div class="modal-content">
-
-                <div class="modal-body">
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-                    <?php $url = $youtube_embed ?>
-                    <?php
-                    $url = str_replace("watch?v=", "embed/", $url);
-                    ?>
-                    <iframe width="100%" height="500" src="{{$url}}?autoplay=1&loop=1" frameborder="0">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </div>
+    @endif
 
     <section class="service-area">
         <div class="service-top-area padding-top2">

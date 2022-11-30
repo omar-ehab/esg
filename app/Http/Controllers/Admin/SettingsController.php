@@ -42,6 +42,7 @@ class SettingsController extends Controller
 
         $profile_link = $files['profile_link'] ?? '';
 
+        $agent_is_active = $agent['is_active'] ?? '';
         $agent_image = $agent['agent_image'] ?? '';
         $description = $agent['description'] ?? '';
         $youtube_embed = $agent['youtube_embed'] ?? '';
@@ -60,6 +61,7 @@ class SettingsController extends Controller
                 'email',
                 'phone',
                 'profile_link',
+                'agent_is_active',
                 'agent_image',
                 'description',
                 'youtube_embed',
@@ -185,6 +187,27 @@ class SettingsController extends Controller
         $store->put('home_popup', $data);
 
         session()->flash('success', 'Popup Data Updated Successfully');
+        return redirect()->back();
+    }
+
+    /**
+     * @param string $status
+     * @return RedirectResponse
+     */
+    public function update_exclusive_agent(string $status): RedirectResponse
+    {
+        $pathToFile = storage_path('app/settings.json');
+        $store = Valuestore::make($pathToFile);
+        $agent = $store->get('agent', []);
+        $data = $agent;
+        if ($status == 'show') {
+            $data['is_active'] = true;
+        } elseif ($status == 'hide') {
+            $data['is_active'] = false;
+        }
+        $store->put('agent', $data);
+
+        session()->flash('success', 'Agent Status Changed Successfully');
         return redirect()->back();
     }
 
