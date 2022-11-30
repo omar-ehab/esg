@@ -15,7 +15,7 @@
 
     <div class="menu-inner-shadow"></div>
 
-    <ul class="menu-inner py-1">
+    <ul class="menu-inner py-1 ps ps--active-y">
         {{--Dashboard--}}
         <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.home') ? 'active' : '' }}">
             <a href="{{ route('admin.home') }}" class="menu-link">

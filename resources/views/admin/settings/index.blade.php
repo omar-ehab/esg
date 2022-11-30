@@ -193,6 +193,70 @@
                         </form>
                     </div>
                 </div>
+                <div class="card mb-4">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Exclusive Agent Data</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('admin.settings.exclusive_agent') }}" method="POST"
+                              enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="row mb-3">
+                                <div class="col">
+                                    @if(strlen($agent_image))
+                                        <img src="{{ asset('storage/' . $agent_image) }}" style="width: 150px"/>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-xs-12 col-md-6 mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="file"
+                                               class="form-control @error('agent_image') is-invalid @enderror"
+                                               name="agent_image"
+                                               accept="image/*"
+                                               aria-label="Agent Image"/>
+                                    </div>
+                                    @error('agent_image')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-xs-12 col-md-6 mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="text"
+                                               class="form-control @error('youtube_embed') is-invalid @enderror"
+                                               name="youtube_embed"
+                                               placeholder="youtube embed link"
+                                               value="{{ old('youtube_embed', $youtube_embed) }}"
+                                        />
+                                    </div>
+                                    @error('youtube_embed')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-xs-12 mb-3">
+                                    <label for="description">Description</label>
+                                    <textarea name="description" id="description"
+                                              rows="5"
+                                              class="form-control">{{ old('description', $description) }}</textarea>
+                                    @error('description')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bx bx-save me-1"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -203,5 +267,22 @@
             max-width: 600px;
             border-radius: 5px;
         }
+
+        .ck-editor__editable[role="textbox"] {
+            /* editing area */
+            min-height: 300px;
+            width: 100%;
+        }
     </style>
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('admin/vendor/libs/ckeditor/full-ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endpush

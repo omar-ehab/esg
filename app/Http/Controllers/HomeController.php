@@ -10,6 +10,7 @@ use App\Models\Service;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Spatie\Valuestore\Valuestore;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,13 @@ class HomeController extends Controller
         $inquiryServices = [];
         $news = News::latest('created_at')->first();
         $services = Service::where('parent_id', null)->get();
-        return view('index', compact('banners', 'countries', 'inquiryServices', 'news', 'services'));
+        $pathToFile = storage_path('app/settings.json');
+        $store = Valuestore::make($pathToFile);
+        $agent = $store->get('agent', []);
+
+        $agent_image = $agent['agent_image'] ?? '';
+        $description = $agent['description'] ?? '';
+        $youtube_embed = $agent['youtube_embed'] ?? '';
+        return view('index', compact('banners', 'countries', 'inquiryServices', 'news', 'services', 'agent_image', 'description', 'youtube_embed'));
     }
 }
