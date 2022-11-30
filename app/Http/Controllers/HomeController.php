@@ -28,10 +28,29 @@ class HomeController extends Controller
         $pathToFile = storage_path('app/settings.json');
         $store = Valuestore::make($pathToFile);
         $agent = $store->get('agent', []);
+        $home_popup = $store->get('home_popup', []);
 
         $agent_image = $agent['agent_image'] ?? '';
         $description = $agent['description'] ?? '';
         $youtube_embed = $agent['youtube_embed'] ?? '';
-        return view('index', compact('banners', 'countries', 'inquiryServices', 'news', 'services', 'agent_image', 'description', 'youtube_embed'));
+
+        $popup_is_active = $home_popup['is_active'] ?? '';
+        $popup_image = $home_popup['image'] ?? '';
+        $popup_title = $home_popup['title'] ?? '';
+        $popup_description = $home_popup['description'] ?? '';
+
+        return view('index', compact('banners',
+            'countries',
+            'inquiryServices',
+            'news',
+            'services',
+            'agent_image',
+            'description',
+            'youtube_embed',
+            'popup_is_active',
+            'popup_image',
+            'popup_title',
+            'popup_description'
+        ));
     }
 }

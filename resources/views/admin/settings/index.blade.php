@@ -257,6 +257,89 @@
                         </form>
                     </div>
                 </div>
+                <div class="card mb-4">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Home Popup Data</h5>
+                        @if($popup_is_active)
+                            <form action="{{ route('admin.settings.update_home_popup', 'hide') }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button class="btn btn-danger">
+                                    <i class="bx bxs-hide me-1"></i>
+                                    Hide
+                                </button>
+                            </form>
+                        @else
+                            <form action="{{ route('admin.settings.update_home_popup', 'show') }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button class="btn btn-success">
+                                    <i class="bx bxs-show me-1"></i>
+                                    Show
+                                </button>
+                            </form>
+                        @endif
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('admin.settings.home_popup') }}" method="POST"
+                              enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="row mb-3">
+                                <div class="col">
+                                    @if(strlen($popup_image))
+                                        <img src="{{ asset('storage/' . $popup_image) }}" style="width: 250px"/>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-xs-12 col-md-6 mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="file"
+                                               class="form-control @error('image') is-invalid @enderror"
+                                               name="image"
+                                               accept="image/*"
+                                               aria-label="Agent Image"/>
+                                    </div>
+                                    @error('image')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-xs-12 col-md-6 mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <input type="text"
+                                               class="form-control @error('title') is-invalid @enderror"
+                                               name="title"
+                                               placeholder="Title"
+                                               value="{{ old('title', $popup_title) }}"
+                                        />
+                                    </div>
+                                    @error('title')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-xs-12 mb-3">
+                                    <label for="description">Description</label>
+                                    <textarea name="description" id="description"
+                                              rows="5"
+                                              class="form-control">{{ old('description', $popup_description) }}</textarea>
+                                    @error('description')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bx bx-save me-1"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

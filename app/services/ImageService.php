@@ -302,26 +302,23 @@ class ImageService
 
     /**
      * @param $file
-     * @param string|null $oldPath
      * @return string
      */
-    public static function updateAgentImage($file, ?string $oldPath): string
+    public static function savePopupImage($file): string
     {
+        // create icons directory if not exists
+        $popup_images_dir = self::getPopupImagesDir();
+        self::createDirIfNotExists($popup_images_dir);
+
         // create image name and path
         $time = time();
         $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
-        $image_path = storage_path('app/public/agent/' . $image_name);
-
+        $image_path = storage_path('app/public/popup/' . $image_name);
         Image::make($file)
             ->encode('webp')
             ->save($image_path);
 
-        //delete old image from storage
-        if ($oldPath) {
-            self::delete($oldPath);
-        }
-
-        return 'agent/' . $image_name;
+        return 'popup/' . $image_name;
     }
 
 
@@ -379,6 +376,14 @@ class ImageService
     private static function getAgentImagesDir(): string
     {
         return storage_path('app/public/agent');
+    }
+
+    /**
+     * @return string
+     */
+    private static function getPopupImagesDir(): string
+    {
+        return storage_path('app/public/popup');
     }
 
     /**

@@ -94,6 +94,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::put('settings/contact_information', [SettingsController::class, 'contact_information'])->name('settings.contact_information');
     Route::put('settings/company_profile', [SettingsController::class, 'company_profile'])->name('settings.company_profile');
     Route::put('settings/exclusive_agent', [SettingsController::class, 'exclusive_agent'])->name('settings.exclusive_agent');
+    Route::put('settings/home_popup', [SettingsController::class, 'home_popup'])->name('settings.home_popup');
+
+    Route::put('settings/home_popup/{status}', [SettingsController::class, 'update_home_popup'])->name('settings.update_home_popup');
 
     //subscribers
     Route::resource('subscribers', SubscribersController::class)->only(['index', 'destroy']);

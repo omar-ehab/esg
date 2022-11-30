@@ -562,7 +562,27 @@
             </div>
         </div>
     </div>
+    @if($popup_is_active)
+        <div id="boxes">
+            <div id="dialog" class="window">
+                <span class="button b-close">
+                    <span>X</span>
+                </span>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12"
+                     style="display: flex;justify-content: center;height: -webkit-fill-available;flex-direction: column;">
+                    <img class="mx-auto mt-auto mb-auto" src="{{asset('storage/' . $popup_image) }}">
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"
+                     style="display: flex;justify-content: center;height: -webkit-fill-available;flex-direction: column;">
+                    <h2>{{ $popup_title }}</h2>
+                    <p>{{ $popup_description }}</p>
+                </div>
 
+
+            </div>
+            <div id="mask"></div>
+        </div>
+    @endif
 
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {

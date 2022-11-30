@@ -29,6 +29,7 @@ class SettingsController extends Controller
         $contact_information = $store->get('contact_information', []);
         $files = $store->get('files', []);
         $agent = $store->get('agent', []);
+        $home_popup = $store->get('home_popup', []);
 
         $facebook = $social_media['facebook'] ?? '';
         $linkedin = $social_media['linkedin'] ?? '';
@@ -45,6 +46,11 @@ class SettingsController extends Controller
         $description = $agent['description'] ?? '';
         $youtube_embed = $agent['youtube_embed'] ?? '';
 
+        $popup_is_active = $home_popup['is_active'] ?? '';
+        $popup_image = $home_popup['image'] ?? '';
+        $popup_title = $home_popup['title'] ?? '';
+        $popup_description = $home_popup['description'] ?? '';
+
         return view('admin.settings.index',
             compact('facebook',
                 'linkedin',
@@ -57,6 +63,10 @@ class SettingsController extends Controller
                 'agent_image',
                 'description',
                 'youtube_embed',
+                'popup_is_active',
+                'popup_image',
+                'popup_title',
+                'popup_description'
             ));
     }
 
@@ -127,7 +137,7 @@ class SettingsController extends Controller
         $pathToFile = storage_path('app/settings.json');
         $store = Valuestore::make($pathToFile);
         $agent = $store->get('agent', []);
-        $data = [];
+        $data = $agent;
         if ($request->hasFile('agent_image')) {
             $agent_image = $agent['agent_image'] ?? '';
             if (strlen($agent_image) > 0) {
@@ -145,6 +155,57 @@ class SettingsController extends Controller
         $store->put('agent', $data);
 
         session()->flash('success', 'Exclusive Agent Data Updated Successfully');
+        return redirect()->back();
+    }
+
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function home_popup(Request $request): RedirectResponse
+    {
+        $pathToFile = storage_path('app/settings.json');
+        $store = Valuestore::make($pathToFile);
+        $home_popup = $store->get('home_popup', []);
+        $data = $home_popup;
+        if ($request->hasFile('image')) {
+            $image = $agent['image'] ?? '';
+            if (strlen($image) > 0) {
+                ImageService::delete($image);
+            }
+            $data['image'] = ImageService::savePopupImage($request->file('image'));
+        }
+        if ($request->has('title')) {
+            $data['title'] = $request->get('title');
+        }
+
+        if ($request->has('description')) {
+            $data['description'] = $request->get('description');
+        }
+        $store->put('home_popup', $data);
+
+        session()->flash('success', 'Popup Data Updated Successfully');
+        return redirect()->back();
+    }
+
+    /**
+     * @param string $status
+     * @return RedirectResponse
+     */
+    public function update_home_popup(string $status): RedirectResponse
+    {
+        $pathToFile = storage_path('app/settings.json');
+        $store = Valuestore::make($pathToFile);
+        $home_popup = $store->get('home_popup', []);
+        $data = $home_popup;
+        if ($status == 'show') {
+            $data['is_active'] = true;
+        } elseif ($status == 'hide') {
+            $data['is_active'] = false;
+        }
+        $store->put('home_popup', $data);
+
+        session()->flash('success', 'Popup Status Changed Successfully');
         return redirect()->back();
     }
 }
