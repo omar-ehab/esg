@@ -4946,6 +4946,11 @@ textarea.form-control {
     text-transform: capitalize;
 }
 
+.ct-sidenav-list > li > a:hover {
+    color: #EA8A07;
+    text-decoration: underline;
+}
+
 
 .ct-sidenav-list > li > a:hover + h3, .ct-sidenav-list > li button {
     color: #EA8A07;
