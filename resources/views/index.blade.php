@@ -36,7 +36,7 @@
                         </h2>
                     </div>
                     <div class="right-portion">
-                        <img src="{{ asset('storage/' . $agent_image) }}" style="width: 50%;">
+                        <img src="{{ asset('storage/' . $agent_image) }}" style="width: 75%;">
                     </div>
                 </div>
             </div>
