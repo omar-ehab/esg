@@ -14,7 +14,7 @@ class ImageService
      */
     public static function saveBannerImage($file): string
     {
-        // create icons directory if not exists
+        // create banners directory if not exists
         $banners_images_dir = self::getBannerImagesDir();
         self::createDirIfNotExists($banners_images_dir);
 
@@ -60,7 +60,7 @@ class ImageService
      */
     public static function saveNewsImage($file): string
     {
-        // create icons directory if not exists
+        // create news directory if not exists
         $news_images_dir = self::getNewsImagesDir();
         self::createDirIfNotExists($news_images_dir);
 
@@ -105,7 +105,7 @@ class ImageService
      */
     public static function saveServiceImage($file): string
     {
-        // create icons directory if not exists
+        // create service directory if not exists
         $service_images_dir = self::getServiceImagesDir();
         self::createDirIfNotExists($service_images_dir);
 
@@ -150,7 +150,7 @@ class ImageService
      */
     public static function saveServiceItemImage($file): string
     {
-        // create icons directory if not exists
+        // create service items directory if not exists
         $service_items_images_dir = self::getServiceItemImagesDir();
         self::createDirIfNotExists($service_items_images_dir);
 
@@ -195,7 +195,7 @@ class ImageService
      */
     public static function saveCertificateImage($file): string
     {
-        // create icons directory if not exists
+        // create certificates directory if not exists
         $certificate_images_dir = self::getCertificateImagesDir();
         self::createDirIfNotExists($certificate_images_dir);
 
@@ -240,7 +240,7 @@ class ImageService
      */
     public static function saveEquipmentImage($file): string
     {
-        // create icons directory if not exists
+        // create equipment directory if not exists
         $equipment_images_dir = self::getEquipmentImagesDir();
         self::createDirIfNotExists($equipment_images_dir);
 
@@ -285,7 +285,7 @@ class ImageService
      */
     public static function saveAgentImage($file): string
     {
-        // create icons directory if not exists
+        // create agent directory if not exists
         $agent_images_dir = self::getAgentImagesDir();
         self::createDirIfNotExists($agent_images_dir);
 
@@ -306,7 +306,7 @@ class ImageService
      */
     public static function savePopupImage($file): string
     {
-        // create icons directory if not exists
+        // create popup directory if not exists
         $popup_images_dir = self::getPopupImagesDir();
         self::createDirIfNotExists($popup_images_dir);
 
@@ -319,6 +319,27 @@ class ImageService
             ->save($image_path);
 
         return 'popup/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @return string
+     */
+    public static function saveOfficesImage($file): string
+    {
+        // create offices directory if not exists
+        $offices_images_dir = self::getOfficesImagesDir();
+        self::createDirIfNotExists($offices_images_dir);
+
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/offices/' . $image_name);
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        return 'offices/' . $image_name;
     }
 
 
@@ -384,6 +405,14 @@ class ImageService
     private static function getPopupImagesDir(): string
     {
         return storage_path('app/public/popup');
+    }
+
+    /**
+     * @return string
+     */
+    private static function getOfficesImagesDir(): string
+    {
+        return storage_path('app/public/offices');
     }
 
     /**

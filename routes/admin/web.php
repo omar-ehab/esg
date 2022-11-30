@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\InquiriesController;
 use App\Http\Controllers\Admin\JobsController;
 use App\Http\Controllers\Admin\MaritimeLawsController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\OfficesController;
 use App\Http\Controllers\Admin\PortDetailsController;
 use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -75,6 +76,10 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //ports
     Route::resource('ports', PortsController::class);
+
+    //our-offices
+    Route::put('our-offices/update_offices_map', [OfficesController::class, 'update_offices_map'])->name('our-offices.update_offices_map');
+    Route::resource('our-offices', OfficesController::class)->except(['show']);
 
     //port details
     Route::get('/ports/{port}/port-details/create', [PortDetailsController::class, 'create'])->name('port-details.create');

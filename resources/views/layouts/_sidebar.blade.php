@@ -56,7 +56,6 @@
                             <h3 class="title-index">About Us</h3>
                         </a>
                     </li>
-
                     <li>
                         <a href="{{ route('ports.index') }}">
                             <h3 class="title-index">Egyptian Sea Ports</h3>
@@ -68,7 +67,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('offices.index') }}">
                             <h3 class="title-index">Our Offices</h3>
                         </a>
                     </li>

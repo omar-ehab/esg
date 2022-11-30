@@ -63,6 +63,12 @@
                 <div data-i18n="Equipment">Equipment</div>
             </a>
         </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.our-offices') ? 'active' : '' }}">
+            <a href="{{ route('admin.our-offices.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-current-location"></i>
+                <div data-i18n="Our Offices">Our Offices</div>
+            </a>
+        </li>
         {{--Contact--}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Contact</span>
