@@ -13,6 +13,7 @@
                     <div class="card-body">
                         <form action="{{ route('admin.equipment.update', $equipment->id) }}" method="POST"
                               enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
                             <div class="row mb-3">
                                 <div class="col-sm-12 col-md-6">
