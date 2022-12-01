@@ -49,6 +49,7 @@ Route::get('/services/suez-canal', [SuezCanalController::class, 'index'])->name(
 Route::get('/services/suez-canal/about', [SuezCanalController::class, 'about'])->name('services.suez-canal.about');
 Route::get('/services/suez-canal/convoy', [SuezCanalController::class, 'convoy'])->name('services.suez-canal.convoy');
 Route::get('/services/suez-canal/calculator', [SuezCanalController::class, 'calculator'])->name('services.suez-canal.calculator');
+Route::post('/services/suez-canal/calculator', [SuezCanalController::class, 'calculate'])->name('services.suez-canal.calculate');
 Route::get('/services/{service}', [ServicesController::class, 'show'])->name('services.show');
 
 
