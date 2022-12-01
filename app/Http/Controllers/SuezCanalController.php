@@ -155,7 +155,6 @@ class SuezCanalController extends Controller
                 $reminderCost = $reminder * $costs[$i]->laden_cost;
             }
             $totalScnt = $typeCost + $reminderCost;
-            dd($totalScnt);
         } elseif ($status == "Ballast") {
             foreach ($costs as $j => $cost) {
                 if ($j < $i) {
