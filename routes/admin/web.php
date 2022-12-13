@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\ServiceItemsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SubscribersController;
+use App\Http\Controllers\Admin\TiersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,6 +77,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //ports
     Route::resource('ports', PortsController::class);
+
+    //calculator
+    Route::resource('tiers', TiersController::class)->except(['show']);
 
     //our-offices
     Route::put('our-offices/update_offices_map', [OfficesController::class, 'update_offices_map'])->name('our-offices.update_offices_map');

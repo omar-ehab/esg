@@ -76,7 +76,7 @@
                                                 @foreach($tiers as $tier)
 
                                                     <option
-                                                        value="{{$tier->id}}" {{($tier->id == $tierId) ? 'selected' : '' }}>{{$tier->number - 1}}</option>
+                                                        value="{{$tier->id}}" {{($tier->id == $tierId) ? 'selected' : '' }}>{{ $tier->number }}</option>
                                                 @endforeach
 
                                             </select>

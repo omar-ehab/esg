@@ -69,6 +69,15 @@
                 <div data-i18n="Our Offices">Our Offices</div>
             </a>
         </li>
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Suez Canal Calculator</span>
+        </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.tiers') ? 'active' : '' }}">
+            <a href="{{ route('admin.tiers.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-list-ol"></i>
+                <div data-i18n="Tiers">Tiers</div>
+            </a>
+        </li>
         {{--Contact--}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Contact</span>
