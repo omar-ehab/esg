@@ -72,9 +72,21 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Suez Canal Calculator</span>
         </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.grt_details') ? 'active' : '' }}">
+            <a href="{{ route('admin.grt_details.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-grid-alt"></i>
+                <div data-i18n="Grt Details">Grt Details</div>
+            </a>
+        </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.pilotage_dues') ? 'active' : '' }}">
+            <a href="{{ route('admin.pilotage_dues.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-navigation"></i>
+                <div data-i18n="Pilotage Dues">Pilotage Dues</div>
+            </a>
+        </li>
         <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.suez_canal_costs') ? 'active' : '' }}">
             <a href="{{ route('admin.suez_canal_costs.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-list-ol"></i>
+                <i class="menu-icon tf-icons bx bx-money"></i>
                 <div data-i18n="Suez Canal Costs">Suez Canal Costs</div>
             </a>
         </li>

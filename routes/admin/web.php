@@ -6,12 +6,14 @@ use App\Http\Controllers\Admin\CareersController;
 use App\Http\Controllers\Admin\CertificatesController;
 use App\Http\Controllers\Admin\ContactUsMessagesController;
 use App\Http\Controllers\Admin\EquipmentController;
+use App\Http\Controllers\Admin\GrtDetailsController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InquiriesController;
 use App\Http\Controllers\Admin\JobsController;
 use App\Http\Controllers\Admin\MaritimeLawsController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\OfficesController;
+use App\Http\Controllers\Admin\PilotageDuesController;
 use App\Http\Controllers\Admin\PortDetailsController;
 use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -79,13 +81,37 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     //ports
     Route::resource('ports', PortsController::class);
 
-    //calculator
+    //tiers
     Route::resource('tiers', TiersController::class)->except(['show']);
 
+    //Pilotage Dues
+    Route::resource('pilotage_dues', PilotageDuesController::class)->except(['show']);
+
+    //suez canal cost
     Route::get('suez_canal_costs', [SuezCanalCostsController::class, 'index'])->name('suez_canal_costs.index');
     Route::get('suez_canal_costs/{cost}', [SuezCanalCostsController::class, 'edit'])->name('suez_canal_costs.edit');
     Route::put('suez_canal_costs/{cost}', [SuezCanalCostsController::class, 'update'])->name('suez_canal_costs.update');
 
+    //grt details
+    Route::get('grt_details', [GrtDetailsController::class, 'index'])->name('grt_details.index');
+    //mooring and lights
+    Route::get('grt_details/mooring_and_lights/{mooring_and_lights}', [GrtDetailsController::class, 'mooring_and_lights'])->name('grt_details.mooring_and_lights.edit');
+    Route::put('grt_details/mooring_and_lights/{mooring_and_lights}', [GrtDetailsController::class, 'update_mooring_and_lights'])->name('grt_details.mooring_and_lights.update_mooring_and_lights');
+    //eams
+    Route::get('grt_details/eams/{eam}', [GrtDetailsController::class, 'eams'])->name('grt_details.eams.edit');
+    Route::put('grt_details/eams/{eam}', [GrtDetailsController::class, 'update_eams'])->name('grt_details.eams.update_eams');
+    //port_authorities
+    Route::get('grt_details/port_authorities/{port_authority}', [GrtDetailsController::class, 'port_authorities'])->name('grt_details.port_authorities.edit');
+    Route::put('grt_details/port_authorities/{port_authority}', [GrtDetailsController::class, 'update_port_authorities'])->name('grt_details.port_authorities.update_port_authority');
+    //shipping_agency_fees
+    Route::get('grt_details/shipping_agency_fees/{shipping_agency_fee}', [GrtDetailsController::class, 'shipping_agency_fees'])->name('grt_details.shipping_agency_fees.edit');
+    Route::put('grt_details/shipping_agency_fees/{shipping_agency_fee}', [GrtDetailsController::class, 'update_shipping_agency_fees'])->name('grt_details.shipping_agency_fees.update_shipping_agency_fee');
+    //usufruct
+    Route::get('grt_details/usufruct/{usufruct}', [GrtDetailsController::class, 'usufruct'])->name('grt_details.usufruct.edit');
+    Route::put('grt_details/usufruct/{usufruct}', [GrtDetailsController::class, 'update_usufruct'])->name('grt_details.usufruct.update_usufruct');
+    //other_authorities
+    Route::get('grt_details/other_authorities/{other_authority}', [GrtDetailsController::class, 'other_authorities'])->name('grt_details.other_authorities.edit');
+    Route::put('grt_details/other_authorities/{other_authority}', [GrtDetailsController::class, 'update_other_authorities'])->name('grt_details.other_authorities.update_other_authorities');
     //our-offices
     Route::put('our-offices/update_offices_map', [OfficesController::class, 'update_offices_map'])->name('our-offices.update_offices_map');
     Route::resource('our-offices', OfficesController::class)->except(['show']);
