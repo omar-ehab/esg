@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\ServiceItemsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SubscribersController;
+use App\Http\Controllers\Admin\SuezCanalCostsController;
 use App\Http\Controllers\Admin\TiersController;
 use Illuminate\Support\Facades\Route;
 
@@ -80,6 +81,10 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     //calculator
     Route::resource('tiers', TiersController::class)->except(['show']);
+
+    Route::get('suez_canal_costs', [SuezCanalCostsController::class, 'index'])->name('suez_canal_costs.index');
+    Route::get('suez_canal_costs/{cost}', [SuezCanalCostsController::class, 'edit'])->name('suez_canal_costs.edit');
+    Route::put('suez_canal_costs/{cost}', [SuezCanalCostsController::class, 'update'])->name('suez_canal_costs.update');
 
     //our-offices
     Route::put('our-offices/update_offices_map', [OfficesController::class, 'update_offices_map'])->name('our-offices.update_offices_map');

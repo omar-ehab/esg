@@ -72,6 +72,12 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Suez Canal Calculator</span>
         </li>
+        <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.suez_canal_costs') ? 'active' : '' }}">
+            <a href="{{ route('admin.suez_canal_costs.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-list-ol"></i>
+                <div data-i18n="Suez Canal Costs">Suez Canal Costs</div>
+            </a>
+        </li>
         <li class="menu-item {{ str_contains(Route::currentRouteName(), 'admin.tiers') ? 'active' : '' }}">
             <a href="{{ route('admin.tiers.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-list-ol"></i>
