@@ -237,16 +237,16 @@
                                         <li>The calculator is based on minimum 3 ton crane capacity for all estimates to
                                             lift mooring boat .if your vessel is not sufficiently equipped, Please
                                             contact the <a
-                                                href="mailto://agencymng@egymar.com.eg"><span>Transit Desk</span></a>
+                                                href="mailto://{{ $email }}"><span>Transit Desk</span></a>
                                             directly to clarify if any extra mooring boat is needed.
                                         </li>
                                         <li>The Suez Canal Authority (SCA) has implemented a rebate system as an
                                             incentive to attract more ships to use the Suez Canal instead of alternative
-                                            routes. Please contact the <a href="mailto://agencymng@egymar.com.eg"><span>Transit Desk</span></a>
+                                            routes. Please contact the <a href="mailto://{{ $email }}"><span>Transit Desk</span></a>
                                             directly for more information about rebate system's .
                                         </li>
                                         <p><b>N.B :</b> Please contact the <a
-                                                href="mailto://agencymng@egymar.com.eg"><span>Transit Desk</span></a>
+                                                href="mailto://{{ $email }}"><span>Transit Desk</span></a>
                                             directly for any further information or Clarification.</p>
                                     </ul>
                                 </div>
