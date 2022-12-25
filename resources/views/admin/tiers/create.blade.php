@@ -35,7 +35,7 @@
                                         Southbound Percentage
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text"
+                                    <input type="number"
                                            autocomplete="off"
                                            class="form-control @error('southbound_percentage') is-invalid @enderror"
                                            id="southbound_percentage"
@@ -51,7 +51,7 @@
                                         Northbound Percentage
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text"
+                                    <input type="number"
                                            autocomplete="off"
                                            class="form-control @error('northbound_percentage') is-invalid @enderror"
                                            id="northbound_percentage"
