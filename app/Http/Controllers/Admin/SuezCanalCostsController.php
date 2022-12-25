@@ -20,7 +20,7 @@ class SuezCanalCostsController extends Controller
      */
     public function index(): View|Factory|Application
     {
-        $shipTypes = SuezCanalShipType::with('costs')->orderBy('created_at')->get();
+        $shipTypes = SuezCanalShipType::with('costs')->orderBy('id')->get();
         return view('admin.suez_canal_costs.index', compact('shipTypes'));
     }
 
