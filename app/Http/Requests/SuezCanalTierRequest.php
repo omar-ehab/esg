@@ -25,8 +25,8 @@ class SuezCanalTierRequest extends FormRequest
     {
         return [
             'number' => 'required|numeric|min:1',
-            'southbound_percentage' => 'required|numeric',
-            'northbound_percentage' => 'required|numeric',
+            'southbound_percentage' => 'required|numeric|min:0|max:1',
+            'northbound_percentage' => 'required|numeric|min:0|max:1',
         ];
     }
 }
