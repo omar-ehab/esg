@@ -34,8 +34,8 @@
                             <td>
                                 {{ $tier->number }}
                             </td>
-                            <td>{{ $tier->southbound_percentage }}</td>
-                            <td>{{ $tier->northbound_percentage }}</td>
+                            <td>{{ $tier->southbound_percentage * 100 }} %</td>
+                            <td>{{ $tier->northbound_percentage * 100 }} %</td>
                             <td>
                                 <div class="d-flex">
                                     <a class="btn btn-warning btn-sm mx-3"
