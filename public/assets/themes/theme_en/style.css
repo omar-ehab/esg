@@ -3733,7 +3733,7 @@ blockquote::before {
 .inquiry-area {
     background: #EA8A07;
     width: 100%;
-    padding: 12px 0 12px 1%;
+    padding: 0px 0 0px 1%;
     text-transform: uppercase;
 }
 
@@ -3748,18 +3748,18 @@ blockquote::before {
 
 .right-portion.inquiryright {
     float: left;
-    padding: 10px 0 0;
+    padding: 5px 0 5px 0;
 }
 
 .left-portion {
     float: left;
-    padding: 35px 0px 0px;
+    padding: 35px 0 0;
     width: 75%;
 }
 
 .left-portion.inquiryleft {
     float: left;
-    padding: 20px 0px 12px 0;
+    padding: 12px 0 12px 0;
     width: 87%;
 }
 
@@ -3772,6 +3772,7 @@ blockquote::before {
 .left-portion p {
     font-size: 21px;
     color: #ffff;
+    margin-bottom: 0;
 }
 
 
@@ -5044,7 +5045,7 @@ ul {
     font-family: 'magistral', sans-serif;
     width: 60%;
     float: left;
-    line-height: 0.8;
+    line-height: 1;
     margin-bottom: 3%;
 }
 

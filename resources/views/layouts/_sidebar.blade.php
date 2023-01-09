@@ -106,17 +106,14 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-
-        </div>
-        <div class="separator"></div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                <div class="toll-box-menu">
-                    <h1>Suez Canal Toll Calculator</h1>
-                    <img src="{{ asset('assets/themes/theme_en/img/suez-canal.png') }}">
-                    <a href="{{ route('services.suez-canal.calculator') }}" class="btn-calculator">Calculate <i
-                            class="fa fa-angle-right"></i></a>
+                <div class="separator"></div>
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                    <div class="toll-box-menu">
+                        <h1>Suez Canal Toll Calculator</h1>
+                        <img src="{{ asset('assets/themes/theme_en/img/suez-canal.png') }}">
+                        <a href="{{ route('services.suez-canal.calculator') }}" class="btn-calculator">Calculate <i
+                                class="fa fa-angle-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
