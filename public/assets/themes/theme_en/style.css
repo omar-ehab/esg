@@ -5043,10 +5043,11 @@ ul {
     color: #043d5c;
     font-size: 18px;
     font-family: 'magistral', sans-serif;
-    width: 60%;
+    width: 75%;
     float: left;
     line-height: 1;
     margin-bottom: 3%;
+    font-size: 14px;
 }
 
 .toll-box-menu img {
