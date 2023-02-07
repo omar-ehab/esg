@@ -6,6 +6,7 @@ use App\Models\Banner;
 use App\Models\Country;
 use App\Models\News;
 use App\Models\Page;
+use App\Models\ScopeOfActivity;
 use App\Models\Service;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -25,6 +26,7 @@ class HomeController extends Controller
         $inquiryServices = [];
         $news = News::latest('created_at')->first();
         $services = Service::where('parent_id', null)->get();
+        $scopeOfActivities = ScopeOfActivity::all();
         $pathToFile = storage_path('app/settings.json');
         $store = Valuestore::make($pathToFile);
         $agent = $store->get('agent', []);
@@ -45,6 +47,7 @@ class HomeController extends Controller
             'inquiryServices',
             'news',
             'services',
+            'scopeOfActivities',
             'agent_is_active',
             'agent_image',
             'description',

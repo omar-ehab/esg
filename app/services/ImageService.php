@@ -283,6 +283,51 @@ class ImageService
      * @param $file
      * @return string
      */
+    public static function saveScopeOfActivityIcon($file): string
+    {
+        // create equipment directory if not exists
+        $icon_dir = self::getScopeOfActivityIconDir();
+        self::createDirIfNotExists($icon_dir);
+
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/scope_of_activity/' . $image_name);
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        return 'scope_of_activity/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @param string|null $oldPath
+     * @return string
+     */
+    public static function updateScopeOfActivityImage($file, ?string $oldPath): string
+    {
+        // create image name and path
+        $time = time();
+        $image_name = $time . md5($file->getClientOriginalName()) . '.webp';
+        $image_path = storage_path('app/public/scope_of_activity/' . $image_name);
+
+        Image::make($file)
+            ->encode('webp')
+            ->save($image_path);
+
+        //delete old image from storage
+        if ($oldPath) {
+            self::delete($oldPath);
+        }
+
+        return 'scope_of_activity/' . $image_name;
+    }
+
+    /**
+     * @param $file
+     * @return string
+     */
     public static function saveAgentImage($file): string
     {
         // create agent directory if not exists
@@ -413,6 +458,14 @@ class ImageService
     private static function getOfficesImagesDir(): string
     {
         return storage_path('app/public/offices');
+    }
+
+    /**
+     * @return string
+     */
+    private static function getScopeOfActivityIconDir(): string
+    {
+        return storage_path('app/public/scope_of_activity');
     }
 
     /**

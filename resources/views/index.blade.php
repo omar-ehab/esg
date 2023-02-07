@@ -137,99 +137,60 @@
         </div>
 
     </section>
+    <section class="promo-area">
+        <div class="promo-top-area section-padding wow fadeIn">
+            <div class="container">
 
-    {{--    <section class="promo-area">--}}
-    {{--        <div class="promo-top-area section-padding wow fadeIn">--}}
-    {{--            <div class="container">--}}
-
-    {{--                <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">--}}
-    {{--                    <div class="about-content-area wow fadeIn">--}}
-    {{--                        <div class="title-served">--}}
-    {{--                            <h2>Scope of activities </h2>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-
-
-    {{--                <div class="row">--}}
-    {{--                    @foreach($industryService->industriesService as $i=> $service)--}}
-    {{--                        @if($i < 6)--}}
-    {{--                                <?php //$word = str_word_count($service->service_title);--}}
-    {{--                                ?>--}}
-    {{--                            <div class="col-md-2 col-lg-1 col-sm-6 col-xs-6 industrybox scope">--}}
-    {{--                                <a href="{{ route('serviceDetails', $service->service_id) }}">--}}
-    {{--                                    <div class="single-promo">--}}
-    {{--                                        <div class="promo-icon"><img--}}
-    {{--                                                src="{{asset('/industriesService')}}/{{$service->service_icon}}"></div>--}}
-    {{--                                        <div class="promo-details">--}}
-    {{--                                                <?php--}}
-    {{--                                                $arr = explode(' ', trim($service->service_title));--}}
-    {{--                                                ?>--}}
-    {{--                                            @if(count($arr) ==1)--}}
-    {{--                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?></h3>--}}
-    {{--                                            @elseif(count($arr) ==2)--}}
-    {{--                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?>--}}
-    {{--                                                    <br/><?php echo $arr[1] ? $arr[1] : ""; ?></h3>--}}
-    {{--                                            @elseif(count($arr) ==3)--}}
-    {{--                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>--}}
-    {{--                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?> </h3>--}}
-    {{--                                            @elseif(count($arr) ==4)--}}
-    {{--                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>--}}
-    {{--                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?><?php echo $arr[3] ? $arr[3] : ""; ?>--}}
-    {{--                                                </h3>--}}
-
-    {{--                                            @endif--}}
-
-    {{--                                        </div>--}}
-    {{--                                    </div>--}}
-    {{--                                </a>--}}
-    {{--                            </div>--}}
-    {{--                        @endif--}}
-
-    {{--                    @endforeach--}}
-    {{--                </div>--}}
+                <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-1 col-sm-12 col-xs-12">
+                    <div class="about-content-area wow fadeIn">
+                        <div class="title-served">
+                            <h2>Scope of activities</h2>
+                        </div>
+                    </div>
+                </div>
 
 
-    {{--                <div class="row">--}}
-    {{--                    @foreach($industryService->industriesService as $i=> $service)--}}
-    {{--                        @if($i >= 6)--}}
-    {{--                                <?php //$word = str_word_count($service->service_title);--}}
-    {{--                                ?>--}}
-    {{--                            <div class="col-md-2 col-lg-1 col-sm-6 col-xs-6 industrybox scope">--}}
-    {{--                                <a href="{{ route('serviceDetails', $service->service_id) }}">--}}
-    {{--                                    <div class="single-promo">--}}
-    {{--                                        <div class="promo-icon"><img--}}
-    {{--                                                src="{{asset('/industriesService')}}/{{$service->service_icon}}"></div>--}}
-    {{--                                        <div class="promo-details">--}}
-    {{--                                                <?php--}}
-    {{--                                                $arr = explode(' ', trim($service->service_title));--}}
-    {{--                                                ?>--}}
-    {{--                                            @if(count($arr) ==1)--}}
-    {{--                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?></h3>--}}
-    {{--                                            @elseif(count($arr) ==2)--}}
-    {{--                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?>--}}
-    {{--                                                    <br/><?php echo $arr[1] ? $arr[1] : ""; ?></h3>--}}
-    {{--                                            @elseif(count($arr) ==3)--}}
-    {{--                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>--}}
-    {{--                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?> </h3>--}}
-    {{--                                            @elseif(count($arr) ==4)--}}
-    {{--                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>--}}
-    {{--                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?><?php echo $arr[3] ? $arr[3] : ""; ?>--}}
-    {{--                                                </h3>--}}
+                <div class="row">
+                    @foreach($scopeOfActivities as $i=> $activity)
+                        @if($i < 6)
+                                <?php //$word = str_word_count($service->service_title);
+                                ?>
+                            <div class="col-md-2 col-lg-1 col-sm-6 col-xs-6 industrybox scope">
+                                <a href="{{ route('scope-of-activities.show', $activity->slug) }}">
+                                    <div class="single-promo">
+                                        <div class="promo-icon">
+                                            <img src="{{ asset('storage/' . $activity->icon_path) }}"/>
+                                        </div>
+                                        <div class="promo-details">
+                                                <?php
+                                                $arr = explode(' ', trim($activity->name));
+                                                ?>
+                                            @if(count($arr) == 1)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?></h3>
+                                            @elseif(count($arr) == 2)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?>
+                                                    <br/><?php echo $arr[1] ? $arr[1] : ""; ?></h3>
+                                            @elseif(count($arr) == 3)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>
+                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?> </h3>
+                                            @elseif(count($arr) == 4)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>
+                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?><?php echo $arr[3] ? $arr[3] : ""; ?>
+                                                </h3>
 
-    {{--                                            @endif--}}
-    {{--                                        </div>--}}
-    {{--                                    </div>--}}
-    {{--                                </a>--}}
-    {{--                            </div>--}}
-    {{--                        @endif--}}
-    {{--                    @endforeach--}}
-    {{--                </div>--}}
+                                            @endif
 
-    {{--            </div>--}}
-    {{--        </div>--}}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endif
 
-    {{--    </section>--}}
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     @if($news)

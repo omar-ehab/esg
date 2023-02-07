@@ -11,6 +11,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\PortsController;
+use App\Http\Controllers\ScopeOfActivitiesController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SuezCanalController;
@@ -40,6 +41,8 @@ Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
 
 Route::post('/newsletter', NewsLetterController::class)->name('newsletter.save');
+
+Route::get('/scope-of-activities/{scopeOfActivity}', [ScopeOfActivitiesController::class, 'show'])->name('scope-of-activities.show');
 
 
 Route::post('/search', [SearchController::class, 'index'])->name('search');

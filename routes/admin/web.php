@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\PilotageDuesController;
 use App\Http\Controllers\Admin\PortDetailsController;
 use App\Http\Controllers\Admin\PortsController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ScopeOfActivitiesController;
 use App\Http\Controllers\Admin\ServiceItemsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
@@ -115,6 +116,8 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     //our-offices
     Route::put('our-offices/update_offices_map', [OfficesController::class, 'update_offices_map'])->name('our-offices.update_offices_map');
     Route::resource('our-offices', OfficesController::class)->except(['show']);
+    //scope-of-activities
+    Route::resource('scope-of-activities', ScopeOfActivitiesController::class)->except(['show']);
 
     //port details
     Route::get('/ports/{port}/port-details/create', [PortDetailsController::class, 'create'])->name('port-details.create');
