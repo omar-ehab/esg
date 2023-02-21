@@ -152,35 +152,68 @@
 
                 <div class="row">
                     @foreach($scopeOfActivities as $i=> $activity)
-                        <div class="col-md-2 col-lg-1 col-sm-6 col-xs-6 industrybox scope">
-                            <a href="{{ route('scope-of-activities.show', $activity->slug) }}">
-                                <div class="single-promo">
-                                    <div class="promo-icon">
-                                        <img src="{{ asset('storage/' . $activity->icon_path) }}"/>
-                                    </div>
-                                    <div class="promo-details">
-                                            <?php
-                                            $arr = explode(' ', trim($activity->name));
-                                            ?>
-                                        @if(count($arr) == 1)
-                                            <h3><?php echo $arr[0] ? $arr[0] : ""; ?></h3>
-                                        @elseif(count($arr) == 2)
-                                            <h3><?php echo $arr[0] ? $arr[0] : ""; ?>
-                                                <br/><?php echo $arr[1] ? $arr[1] : ""; ?></h3>
-                                        @elseif(count($arr) == 3)
-                                            <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>
-                                                <br/> <?php echo $arr[2] ? $arr[2] : ""; ?> </h3>
-                                        @elseif(count($arr) == 4)
-                                            <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>
-                                                <br/> <?php echo $arr[2] ? $arr[2] : ""; ?><?php echo $arr[3] ? $arr[3] : ""; ?>
-                                            </h3>
+                        @if($i < 6)
+                                <?php //$word = str_word_count($service->service_title);
+                                ?>
+                            <div class="col-md-2 col-lg-1 col-sm-6 col-xs-6 industrybox scope">
+                                <a href="{{ route('scope-of-activities.show', $activity->slug) }}">
+                                    <div class="single-promo">
+                                        <div class="promo-icon">
+                                            <img src="{{ asset('storage/' . $activity->icon_path) }}"/>
+                                        </div>
+                                        <div class="promo-details">
+                                                <?php
+                                                $arr = explode(' ', trim($activity->name));
+                                                ?>
+                                            @if(count($arr) == 1)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?></h3>
+                                            @elseif(count($arr) == 2)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?>
+                                                    <br/><?php echo $arr[1] ? $arr[1] : ""; ?></h3>
+                                            @elseif(count($arr) == 3)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>
+                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?> </h3>
+                                            @elseif(count($arr) == 4)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>
+                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?><?php echo $arr[3] ? $arr[3] : ""; ?>
+                                                </h3>
+                                            @endif
 
-                                        @endif
-
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        @else
+                            <div class="col-md-2 col-lg-1 col-sm-6 col-xs-6 industrybox scope">
+                                <a href="{{ route('scope-of-activities.show', $activity->slug) }}">
+                                    <div class="single-promo">
+                                        <div class="promo-icon">
+                                            <img src="{{ asset('storage/' . $activity->icon_path) }}"/>
+                                        </div>
+                                        <div class="promo-details">
+                                                <?php
+                                                $arr = explode(' ', trim($activity->name));
+                                                ?>
+                                            @if(count($arr) ==1)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?></h3>
+                                            @elseif(count($arr) ==2)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?>
+                                                    <br/><?php echo $arr[1] ? $arr[1] : ""; ?></h3>
+                                            @elseif(count($arr) ==3)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>
+                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?> </h3>
+                                            @elseif(count($arr) ==4)
+                                                <h3><?php echo $arr[0] ? $arr[0] : ""; ?><?php echo $arr[1] ? $arr[1] : ""; ?>
+                                                    <br/> <?php echo $arr[2] ? $arr[2] : ""; ?><?php echo $arr[3] ? $arr[3] : ""; ?>
+                                                </h3>
+
+                                            @endif
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endif
+
                     @endforeach
                 </div>
             </div>
